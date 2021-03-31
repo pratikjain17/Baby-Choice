@@ -72,6 +72,11 @@ include 'db_connection.php';
                                             $productcategory = $row['p_category'];
                                             $productdescription = $row['p_description'];
                                             $productquantity = $row['p_quantity'];
+                                            $sql1 = "SELECT * FROM `categories` WHERE `c_id` = $productcategory";
+                                            $result1 = mysqli_query($conn,$sql1);
+                                            $row1 = mysqli_fetch_assoc($result1);
+                                            $categoryname = $row1['c_name'];
+                                            // echo $categoryname;
 
                                             echo '<tr>
                                             <td>'.$productid.'</td>
@@ -80,7 +85,7 @@ include 'db_connection.php';
                                             <td>'.$productprice.'</td>
                                             <td>'.$productdiscountprice.'</td>
                                             <td>'.$productquantity.'</td>
-                                            <td>'.$productcategory.'</td>
+                                            <td>'.$categoryname.'</td>
                                             <td>'.$productdescription.'</td>
                                             <td><a href="updateProduct.php?productid='.$productid.'" class="fa fa-edit"
                                                     ></a> <a href="deleteProduct.php?productid='.$productid.'"
@@ -160,7 +165,7 @@ include 'db_connection.php';
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label>Category Name or id</label>
-                                                    <select class="form-control category_list" name="category_id">
+                                                    <select class="form-control category_list" name="product_category_id">
                                                         <option value="">Select Category</option>
                                                         <option value="1">Clothing</option>
                                                         <option value="2">Electronics</option>

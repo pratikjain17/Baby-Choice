@@ -1,4 +1,5 @@
 <?php
+include 'db_connection.php';
 include 'header_admin.php'
 ?>
 <!DOCTYPE html>
@@ -18,6 +19,13 @@ include 'header_admin.php'
     <script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <style>
+        .prod {
+        height: 100px;
+        width: 100px;
+    }
+    </style>
+    
 </head>
 
 <body>
@@ -53,8 +61,38 @@ include 'header_admin.php'
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php ?>
-                                        <tr>
+                                    <?php 
+                                        $sql = "SELECT * FROM `products` WHERE `p_subcategory` = 6";
+                                        $result = mysqli_query($conn,$sql);
+                                        while($row = mysqli_fetch_assoc($result)){
+                                            $productid = $row['p_id'];
+                                            $productname = $row['p_name'];
+                                            $productimage = $row['p_image'];
+                                            $productprice = $row['p_price'];
+                                            $productdiscountprice = $row['p_discountprice'];
+                                            $productcategory = $row['p_category'];
+                                            $productdescription = $row['p_description'];
+                                            $productquantity = $row['p_quantity'];
+                                            $sql1 = "SELECT * FROM `categories` WHERE `c_id` = $productcategory";
+                                            $result1 = mysqli_query($conn,$sql1);
+                                            $row1 = mysqli_fetch_assoc($result1);
+                                            $categoryname = $row1['c_name'];
+                                            echo '<tr>
+                                            <td>'.$productid.'</td>
+                                            <td>'.$productname.'</td>
+                                            <td><img src="img/'.$productimage.'" alt="" class="prod"></td>
+                                            <td>'.$productprice.'</td>
+                                            <td>'.$productdiscountprice.'</td>
+                                            <td>'.$productquantity.'</td>
+                                            <td>'.$categoryname.'</td>
+                                            <td>'.$productdescription.'</td>
+                                            <td><a href="updateProduct.php?productid='.$productid.'" class="fa fa-edit"
+                                                    ></a> <a href="deleteProduct.php?productid='.$productid.'"
+                                                    class="fa fa-trash" style="float: right;"></a></td>
+                                        </tr>';
+                                        } 
+                                    ?>
+                                        <!-- <tr>
                                             <td>1</td>
                                             <td>Huggies</td>
                                             <td>2.jpg</td>
@@ -66,7 +104,7 @@ include 'header_admin.php'
                                             <td><a href="updateProduct.php?productid='.$productid.'" class="fa fa-edit" 
                                                     ></a> <a href="#"
                                                     class="fa fa-trash" style="float: right;"></a></td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
@@ -85,7 +123,8 @@ include 'header_admin.php'
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form id="add-product-form" enctype="multipart/form-data">
+                                    <form id="add-product-form" enctype="multipart/form-data" action="addProduct.php"
+                                        method="post">
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="form-group">

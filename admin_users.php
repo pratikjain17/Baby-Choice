@@ -1,4 +1,5 @@
 <?php
+include 'db_connection.php';
 include 'header_admin.php'
 ?>
 <!DOCTYPE html>
@@ -30,7 +31,7 @@ include 'header_admin.php'
                             <div class="center_3r1 clearfix">
                                 <div class="row">
                                     <div class="col-sm-9">
-                                        <h4>Requested Products List</h4>
+                                        <h4>Users list</h4>
                                     </div>
                                     
                                 </div>
@@ -49,7 +50,30 @@ include 'header_admin.php'
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                    <?php 
+                                        $sql = "SELECT * FROM `user`";
+                                        $result = mysqli_query($conn,$sql);
+                                        while($row = mysqli_fetch_assoc($result)){
+                                            $userid = $row['user_id'];
+                                            $fname = $row['fname'];
+                                            $lanme = $row['lname'];
+                                            $email = $row['email'];
+                                            $mobile = $row['mobile'];
+                                            $address = $row['address'];
+                                            echo ' <tr>
+                                            <td>'.$userid.'</td>
+                                            <td>'.$fname.'</td>
+                                            <td>'.$lanme.'</td>
+                                            <td>'.$email.'</td>
+                                            <td>'.$mobile.'</td>
+                                            <td>'.$address.'</td>
+                                            
+                                            <td><a href="#"
+                                                    class="fa fa-info-circle" style="float: right;"></a></td>
+                                        </tr>';
+                                        }
+                                    ?>
+                                        <!-- <tr>
                                             <td>1</td>
                                             <td>Pratik</td>
                                             <td>Jain</td>
@@ -58,7 +82,7 @@ include 'header_admin.php'
                                             <td>hey this is a sample order</td>
                                             <td><a href="#"
                                                     class="fa fa-info-circle" style="float: right;"></a></td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>

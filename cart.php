@@ -106,10 +106,12 @@ include 'header.php';
 								
 							} else if (isset($_GET['usercart']) && $_GET['usercart'] == $_SESSION['userid']) {
 								$user_id = $_SESSION['userid'];
-								$sql1 = "SELECT `p_id` FROM `cart` WHERE `user_id` = $user_id";
+								$sql1 = "SELECT * FROM `cart` WHERE `user_id` = $user_id";
 								$result1 = mysqli_query($conn, $sql1);
 								while ($row = mysqli_fetch_assoc($result1)) {
 									// print_r($row);
+									$cartquantity = $row['p_quantity'];
+									$cartProductid = $row['cart_p_id'];
 									$pid = $row['p_id'];
 									$sql2 = "SELECT * FROM `products` WHERE `p_id` = $pid";
 									$result2 = mysqli_query($conn, $sql2);
@@ -120,8 +122,8 @@ include 'header.php';
 									$product_price = $product['p_price'];
 									$product_discountprice = $product['p_discountprice'];
 									$product_image = $product['p_image'];
-									$bill += $product_discountprice;
-									$_SESSION['cartBill'] += $product_discountprice;
+									$bill += ($product_discountprice * $cartquantity);
+									$_SESSION['cartBill'] += ($product_discountprice * $cartquantity);
 									$numberOfItems = mysqli_num_rows($result2);
 									$_SESSION['cartItems'] = mysqli_num_rows($result2);
 									echo '<div class="cart_3l1 clearfix">
@@ -143,13 +145,16 @@ include 'header.php';
 										<span class="input-group-btn">
 											<button class="btn btn-default" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
 										</span>
-										<input type="text" class="form-control text-center" value="1">
+										<form method="post" action="handleCart.php?cartid='.$cartProductid.'">
+										<input type="text" class="form-control text-center" value="'.$cartquantity.'" name="product_quantity">
+										<button type="submit" class="button mgt">UPDATE CART</button>
+										</form>
 										<span class="input-group-btn">
 											<button class="btn btn-default" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
 										</span>
 									</div>
+									
 									<h6 class="mgt"><a class="button_1 mgt" href="handleCart.php?productid='.$pid.'&request=delete">REMOVE</a></h6>
-									<h6 class="mgt"><a class="button mgt" href="handleCart.php?productid='.$pid.'&request=update">UPDATE CART</a></h6>
 								</div>
 							</div>
 						</div>
@@ -256,7 +261,16 @@ include 'header.php';
 						<div class="col-sm-4">
 							<div class="cart_3r clearfix">
 								<h5 class="mgt head_1">SUBTOTAL</h5>
-								<h3 class="text-center">Rs. <?php echo $bill ?>/-</h3>
+								<?php
+									if(isset($_SESSION['loggedin']) &&$_SESSION['loggedin'] == true){
+										echo '<h3 class="text-center">Rs.'.$bill .'/-</h3>';
+									}
+									else{
+										echo '<h3 class="text-center">Rs. 0/-</h3>';
+									}
+								?>
+								
+								
 								<hr>
 								<h6>Additional comments</h6>
 								<textarea class="form-control"></textarea>

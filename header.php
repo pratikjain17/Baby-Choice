@@ -1,33 +1,35 @@
 <?php
 session_start();
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+	$user_id = $_SESSION['userid'];
 	$userid = $_SESSION['userid'];					
 	$_SESSION['cartBill'] = 0.00;
 	$_SESSION['cartItems'] = 0;
 	$bill = 0.00;
 	$numberOfItems = 0;
-								$sql1 = "SELECT `p_id` FROM `cart` WHERE `user_id` = $userid";
-								$result1 = mysqli_query($conn, $sql1);
-								while ($row = mysqli_fetch_assoc($result1)) {
-									// print_r($row);
-									$pid = $row['p_id'];
-									$sql2 = "SELECT * FROM `products` WHERE `p_id` = $pid";
-									$result2 = mysqli_query($conn, $sql2);
-									$product = mysqli_fetch_assoc($result2);
-									$product_name = $product['p_name'];
-									$product_desc = $product['p_description'];
-									$product_category_id = $product['p_category'];
-									$product_price = $product['p_price'];
-									$product_discountprice = $product['p_discountprice'];
-									$product_image = $product['p_image'];
-									// $bill += $product_discountprice;
-									$_SESSION['cartBill'] += $product_discountprice;
-									// $numberOfItems = mysqli_num_rows($result2);
+	$sql1 = "SELECT * FROM `cart` WHERE `user_id` = $user_id";
+	$result1 = mysqli_query($conn, $sql1);
+	while ($row = mysqli_fetch_assoc($result1)) {
+		// print_r($row);
+		$cartquantity = $row['p_quantity'];
+		$cartProductid = $row['cart_p_id'];
+		$pid = $row['p_id'];
+		$sql2 = "SELECT * FROM `products` WHERE `p_id` = $pid";
+		$result2 = mysqli_query($conn, $sql2);
+		$product = mysqli_fetch_assoc($result2);
+		$product_name = $product['p_name'];
+		$product_desc = $product['p_description'];
+		$product_category_id = $product['p_category'];
+		$product_price = $product['p_price'];
+		$product_discountprice = $product['p_discountprice'];
+		$product_image = $product['p_image'];
+		// $bill += ($product_discountprice * $cartquantity);
+		$_SESSION['cartBill'] += ($product_discountprice * $cartquantity);
+		// $numberOfItems = mysqli_num_rows($result2);
+		// $_SESSION['cartItems'] = mysqli_num_rows($result2);
 									
 								}
-								$sql2 = "SELECT * FROM `products` WHERE `p_id` = $pid";
-									$result2 = mysqli_query($conn, $sql2);
-									$_SESSION['cartItems'] = mysqli_num_rows($result2); 
+								 
 		
 
 }
@@ -115,7 +117,7 @@ else{
 	 <div class="top_2r text-center clearfix">
 	 <?php 
 	 	if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
-			 echo '<h6 class="mgt"><a href="#"><i class="fa fa-shopping-basket"></i> '.$_SESSION['cartItems'].' items / Rs.'. $_SESSION['cartBill'] .' </a></h6>';
+			 echo '<h6 class="mgt"><a href="#"><i class="fa fa-shopping-basket"></i> Cart Total Rs.'. $_SESSION['cartBill'] .' </a></h6>';
 		 }
 		 else{
 			 echo '<h6 class="mgt"><a href="#"><i class="fa fa-shopping-basket"></i> No items,please login / Rs.0 </a></h6>';

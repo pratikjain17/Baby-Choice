@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2021 at 04:50 PM
+-- Generation Time: Mar 31, 2021 at 10:26 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -53,8 +53,17 @@ CREATE TABLE `cart` (
   `cart_p_id` int(100) NOT NULL,
   `p_id` int(100) NOT NULL,
   `user_id` int(100) NOT NULL,
+  `p_quantity` int(2) NOT NULL DEFAULT 1,
   `timestamp` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cart_p_id`, `p_id`, `user_id`, `p_quantity`, `timestamp`) VALUES
+(48, 3, 21, 1, '2021-03-31 13:25:29'),
+(49, 2, 21, 5, '2021-03-31 13:51:18');
 
 -- --------------------------------------------------------
 
@@ -118,14 +127,14 @@ INSERT INTO `products` (`p_id`, `p_name`, `p_description`, `p_price`, `p_image`,
 (8, 'Rainforest Musical Lullaby Baby', '', '1,999.00', '19.jpg', 8, '2021-03-17 20:12:39', '1,599.00', 2, '', 0),
 (9, 'Intex Sunset Glow Baby Pool', '', '1,999.00', '20.jpg', 9, '2021-03-17 20:12:44', '1,599.00', 3, '', 0),
 (10, 'Stuffed Cuddly Pikachu Plush Toy', 'v vsdv sdfvds v', '500.00', '21.jpg', 2, '2021-03-17 20:13:06', '249.00', 3, '', 0),
-(11, 'Super Durable 6 Pack Sensory Balls', '', '500.00', '22.jpg', 1, '2021-03-17 23:04:38', '390.00', 3, '', 0),
-(12, 'Soft Choo Choo Bath Toys', '', '300.00', '23.jpg', 2, '2021-03-17 23:05:58', '279.00', 3, '', 0),
-(13, 'My Baby Record Book – Pink', '', '600.00', '24.jpg', 2, '2021-03-17 23:07:10', '480.00', 3, '', 0),
+(11, 'Super Durable 6 Pack Sensory Balls', '', '500.00', '22.jpg', 1, '2021-03-17 23:04:38', '390.00', 6, '', 0),
+(12, 'Soft Choo Choo Bath Toys', '', '300.00', '23.jpg', 2, '2021-03-17 23:05:58', '279.00', 6, '', 0),
+(13, 'My Baby Record Book – Pink', '', '600.00', '24.jpg', 2, '2021-03-17 23:07:10', '480.00', 6, '', 0),
 (14, 'Play Craft Nib Painting Kit', '', '500.00', '25.jpg', 2, '2021-03-17 23:08:40', '375.00', 3, '', 0),
 (15, 'Little Chime Baby Scooter Battery Operated Ride on Bike with Music and Light (Pink)', '', '6,999.00', '5.jpg', 2, '2021-03-17 23:26:20', '5,699.00', 4, 'Electrical Vehicles', 0),
 (16, 'Toyshine Ducky Baby Tricycle Ride-on Bicycle (Red)- BES for 2-3 Years Kids', '', '1,999.00', '6.jpg', 2, '2021-03-17 23:30:00', '1,391.00', 4, 'Trikes', 0),
 (17, 'Himalaya Herbals', '', '500.00', '7.jpg', 2, '2021-03-18 08:47:10', '359.00', 5, '', 0),
-(18, 'Waterproof Baby Bed2', '', '200.00', '8.jpg', 0, '2021-03-18 08:48:24', '135.00', 5, '', 0);
+(25, 'Johnsons baby soap opera cream mosituriser', 'This is a nice product\r\n', '999', 'hulk vs hulkbuster.jpg', 5, '2021-03-31 12:38:06', '899', 2, 'Cream', 4);
 
 -- --------------------------------------------------------
 
@@ -164,6 +173,7 @@ CREATE TABLE `user` (
   `email` varchar(50) NOT NULL,
   `mobile` varchar(10) NOT NULL,
   `password` varchar(100) NOT NULL,
+  `address` text NOT NULL,
   `timestamp` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -171,21 +181,21 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `fname`, `lname`, `email`, `mobile`, `password`, `timestamp`) VALUES
-(1, 'Bipin', 'yadav', 'android@android.com', '1234567891', '25569695656566', '2021-03-06 11:55:04'),
-(2, 'ajay', 'aky', 'bipinyadav919@gmail.com', '1234567891', '$2y$10$qiLeEmjY/przdokKO7U9KOa8wIhi2gYzBBxFa.erNi3vskS8F9Jom', '2021-03-07 12:33:25'),
-(5, 'vinay', 'verma', 'vinayvermav.100@gmail.com', '8689800551', '$2y$10$6sAgM2C3r14EYzxrkj1qJuPa8Njl1lG/ERZmhVKHulo4Ux1Bd2T9i', '2021-03-08 11:32:13'),
-(7, 'Ajay', 'Kumavat', 'ajay@gmail.com', '5566778899', '$2y$10$V2/tLsvG.qTkwVMsfgm4dOo5hwvsj0hZGaFSTbDmWHdtqwnPHerD.', '2021-03-09 11:39:29'),
-(8, 'vddrg', 'dfbdg', 'gegshsfhs', '52525227', '$2y$10$WFUTXlduXagjzxixhEmaTud4lKcISBv6DGNTzOWMBxYadZ4av3yym', '2021-03-09 11:41:15'),
-(9, 'bipinn', 'yadav', 'bky@gmail.com', '9999999999', '$2y$10$HVhx0dZI.EuTlLoyIQEmJ.FsT3rzxCsSymdyFmZrp8hQ.nvu27X.q', '2021-03-09 11:44:02'),
-(10, 'akash', 'yadav', 'ak@gmail.com', '999999993', '$2y$10$J8BLRVpH72mpS9ofLlvmquBCh6it4NYccuAZwwIXJrsPpMAmqQ7uW', '2021-03-09 11:46:14'),
-(11, 'avb', 'adsd', 'ajay1@gmail.com', '5766855656', '$2y$10$2xUgHMXGlmTJmsEPwErvBeQ/suqAwv3HS3nBWDR0lYIDOu0fZjy4q', '2021-03-09 13:30:36'),
-(12, 'bky', 'bky', 'bky@mail.com', '546123789', '$2y$10$UWHZ2MhrZ5eCcsWtG/UgsuMObfWG09VGXJDKViAJb119cAPD//uC.', '2021-03-11 19:37:01'),
-(13, 'Bipin', 'yadav', 'bipinyadav844@gmail.com', '9999999999', '$2y$10$TDbvsOElJWIbZOuo/c4S8OSbVET1bJb7qt852hH1Y.DBXZyO3NGay', '2021-03-15 13:59:37'),
-(14, 'Admin', 'aky', 'admin@admin.in', '1234567891', '$2y$10$MeKwG3ghqzsee7ahFB3/j.N3Lqn6AaZieNFHBvk//IcV4TrLVoAxm', '2021-03-15 14:54:40'),
-(19, 'ajay', 'gsagsafsa', 'safsagasgafa', '1234567891', '$2y$10$Tpfy.Y/neOY7UvAT3Da/h.9BanzQ4R3F8POqkv8N7yBghvDxA/XUG', '2021-03-16 16:00:17'),
-(20, 'b2', 'b2', 'b2@gmail.com', '1234567890', '$2y$10$TFumbEZsugxamM/Zn6hQGeoo5X2UzVcR479hY4XTc9zR/pCOKozRa', '2021-03-21 13:38:49'),
-(21, 'Pratik ', 'Jain', 'pdir@gmail.com', '9901910910', '$2y$10$5PDf1JpPei9io6H/Sf316OmZKmlP/3Hzu76rVlSec5r2WHA6OWos2', '2021-03-23 12:45:52');
+INSERT INTO `user` (`user_id`, `fname`, `lname`, `email`, `mobile`, `password`, `address`, `timestamp`) VALUES
+(1, 'Bipin', 'yadav', 'android@android.com', '1234567891', '25569695656566', 'r', '2021-03-06 11:55:04'),
+(2, 'ajay', 'aky', 'bipinyadav919@gmail.com', '1234567891', '$2y$10$qiLeEmjY/przdokKO7U9KOa8wIhi2gYzBBxFa.erNi3vskS8F9Jom', 't', '2021-03-07 12:33:25'),
+(5, 'vinay', 'verma', 'vinayvermav.100@gmail.com', '8689800551', '$2y$10$6sAgM2C3r14EYzxrkj1qJuPa8Njl1lG/ERZmhVKHulo4Ux1Bd2T9i', 'g', '2021-03-08 11:32:13'),
+(7, 'Ajay', 'Kumavat', 'ajay@gmail.com', '5566778899', '$2y$10$V2/tLsvG.qTkwVMsfgm4dOo5hwvsj0hZGaFSTbDmWHdtqwnPHerD.', 'g', '2021-03-09 11:39:29'),
+(8, 'vddrg', 'dfbdg', 'gegshsfhs', '52525227', '$2y$10$WFUTXlduXagjzxixhEmaTud4lKcISBv6DGNTzOWMBxYadZ4av3yym', 'vf', '2021-03-09 11:41:15'),
+(9, 'bipinn', 'yadav', 'bky@gmail.com', '9999999999', '$2y$10$HVhx0dZI.EuTlLoyIQEmJ.FsT3rzxCsSymdyFmZrp8hQ.nvu27X.q', 'dd', '2021-03-09 11:44:02'),
+(10, 'akash', 'yadav', 'ak@gmail.com', '999999993', '$2y$10$J8BLRVpH72mpS9ofLlvmquBCh6it4NYccuAZwwIXJrsPpMAmqQ7uW', 'sd', '2021-03-09 11:46:14'),
+(11, 'avb', 'adsd', 'ajay1@gmail.com', '5766855656', '$2y$10$2xUgHMXGlmTJmsEPwErvBeQ/suqAwv3HS3nBWDR0lYIDOu0fZjy4q', 'as', '2021-03-09 13:30:36'),
+(12, 'bky', 'bky', 'bky@mail.com', '546123789', '$2y$10$UWHZ2MhrZ5eCcsWtG/UgsuMObfWG09VGXJDKViAJb119cAPD//uC.', 'cv', '2021-03-11 19:37:01'),
+(13, 'Bipin', 'yadav', 'bipinyadav844@gmail.com', '9999999999', '$2y$10$TDbvsOElJWIbZOuo/c4S8OSbVET1bJb7qt852hH1Y.DBXZyO3NGay', 'bb', '2021-03-15 13:59:37'),
+(14, 'Admin', 'aky', 'admin@admin.in', '1234567891', '$2y$10$MeKwG3ghqzsee7ahFB3/j.N3Lqn6AaZieNFHBvk//IcV4TrLVoAxm', 'a', '2021-03-15 14:54:40'),
+(19, 'ajay', 'gsagsafsa', 'safsagasgafa', '1234567891', '$2y$10$Tpfy.Y/neOY7UvAT3Da/h.9BanzQ4R3F8POqkv8N7yBghvDxA/XUG', 'mn', '2021-03-16 16:00:17'),
+(20, 'b2', 'b2', 'b2@gmail.com', '1234567890', '$2y$10$TFumbEZsugxamM/Zn6hQGeoo5X2UzVcR479hY4XTc9zR/pCOKozRa', 'zz', '2021-03-21 13:38:49'),
+(21, 'Pratik ', 'Jain', 'pdir@gmail.com', '9901910910', '$2y$10$5PDf1JpPei9io6H/Sf316OmZKmlP/3Hzu76rVlSec5r2WHA6OWos2', 'za', '2021-03-23 12:45:52');
 
 --
 -- Indexes for dumped tables
@@ -242,7 +252,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_p_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `cart_p_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -254,7 +264,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `p_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `p_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `subcategories`

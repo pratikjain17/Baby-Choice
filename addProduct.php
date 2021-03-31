@@ -16,8 +16,8 @@
     $destination = "C:/xampp/htdocs/Baby Choice/img/".basename($_FILES['product_image']['name']);
     move_uploaded_file($_FILES['product_image']['tmp_name'],$destination);
 
-    $sql = "INSERT INTO `products` (`p_id`, `p_name`, `p_description`, `p_price`, `p_image`, `p_category`, `timstamp`, `p_discountprice`, `p_subcategory`, `p_tittle`) 
-    VALUES (NULL, '$productname', '$productdescription', '$productprice', '$productimage', '$productcategoryid', current_timestamp(), '$productdiscountprice', '$productsubcategory', '$producttitle');";
+    $sql = "INSERT INTO `products` (`p_id`, `p_name`, `p_description`, `p_price`, `p_image`, `p_category`, `timstamp`, `p_discountprice`, `p_subcategory`, `p_tittle`,`p_quantity`) 
+    VALUES (NULL, '$productname', '$productdescription', '$productprice', '$productimage', '$productcategoryid', current_timestamp(), '$productdiscountprice', '$productsubcategory', '$producttitle','$productquantity');";
     $result = mysqli_query($conn,$sql);
 
     header("Location: /Baby Choice/manage_products.php");
