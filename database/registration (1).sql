@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2021 at 10:26 AM
+-- Generation Time: Mar 31, 2021 at 06:12 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -46,6 +46,31 @@ INSERT INTO `admin` (`admin_id`, `email`, `password`, `timestamp`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `blogs`
+--
+
+CREATE TABLE `blogs` (
+  `blog_id` int(7) NOT NULL,
+  `blog_title` varchar(255) NOT NULL,
+  `blog_description` text NOT NULL,
+  `blog_author` varchar(255) NOT NULL,
+  `blog_image` varchar(255) NOT NULL,
+  `blog_time` datetime NOT NULL DEFAULT current_timestamp(),
+  `blog_date` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `blogs`
+--
+
+INSERT INTO `blogs` (`blog_id`, `blog_title`, `blog_description`, `blog_author`, `blog_image`, `blog_time`, `blog_date`) VALUES
+(2, 'ww', 'ddd', 'Bipin Yadav', '3.jpg', '2021-03-31 20:22:41', '2021-03-31 20:22:41'),
+(3, 'Product', 'Product', 'ab', '4.jpg', '2021-03-31 21:07:17', '2021-03-31 21:07:17'),
+(7, 'Baby Hulk', 'Hulk is a 2003 American superhero film based on the Marvel Comics character of the same name, directed by Ang Lee and written by James Schamus, Michael France, and John Turman from a story by Schamus.', 'Karen', 'hulk vs hulkbuster.jpg', '2021-03-31 21:32:12', '2021-03-31 21:32:12');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cart`
 --
 
@@ -62,8 +87,7 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cart_p_id`, `p_id`, `user_id`, `p_quantity`, `timestamp`) VALUES
-(48, 3, 21, 1, '2021-03-31 13:25:29'),
-(49, 2, 21, 5, '2021-03-31 13:51:18');
+(51, 4, 21, 7, '2021-03-31 18:16:37');
 
 -- --------------------------------------------------------
 
@@ -129,7 +153,6 @@ INSERT INTO `products` (`p_id`, `p_name`, `p_description`, `p_price`, `p_image`,
 (10, 'Stuffed Cuddly Pikachu Plush Toy', 'v vsdv sdfvds v', '500.00', '21.jpg', 2, '2021-03-17 20:13:06', '249.00', 3, '', 0),
 (11, 'Super Durable 6 Pack Sensory Balls', '', '500.00', '22.jpg', 1, '2021-03-17 23:04:38', '390.00', 6, '', 0),
 (12, 'Soft Choo Choo Bath Toys', '', '300.00', '23.jpg', 2, '2021-03-17 23:05:58', '279.00', 6, '', 0),
-(13, 'My Baby Record Book – Pink', '', '600.00', '24.jpg', 2, '2021-03-17 23:07:10', '480.00', 6, '', 0),
 (14, 'Play Craft Nib Painting Kit', '', '500.00', '25.jpg', 2, '2021-03-17 23:08:40', '375.00', 3, '', 0),
 (15, 'Little Chime Baby Scooter Battery Operated Ride on Bike with Music and Light (Pink)', '', '6,999.00', '5.jpg', 2, '2021-03-17 23:26:20', '5,699.00', 4, 'Electrical Vehicles', 0),
 (16, 'Toyshine Ducky Baby Tricycle Ride-on Bicycle (Red)- BES for 2-3 Years Kids', '', '1,999.00', '6.jpg', 2, '2021-03-17 23:30:00', '1,391.00', 4, 'Trikes', 0),
@@ -208,6 +231,12 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`);
 
 --
+-- Indexes for table `blogs`
+--
+ALTER TABLE `blogs`
+  ADD PRIMARY KEY (`blog_id`);
+
+--
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
@@ -249,10 +278,16 @@ ALTER TABLE `admin`
   MODIFY `admin_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `blogs`
+--
+ALTER TABLE `blogs`
+  MODIFY `blog_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_p_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `cart_p_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `categories`

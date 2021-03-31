@@ -1,5 +1,6 @@
 <?php
-include 'header_admin.php'
+include 'db_connection.php';
+include 'header_admin.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +20,12 @@ include 'header_admin.php'
     <script src="js/bootstrap.min.js"></script>
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 </head>
+<style>
+    .blog{
+        height: 100px;
+        width: 100px;
+    }
+</style>
 
 <body>
     <section id="center" class="center_register">
@@ -42,29 +49,41 @@ include 'header_admin.php'
                                 <table class="table table-striped table-sm">
                                     <thead>
                                         <tr>
-                                            <th>blog id</th>
+                                            <th>Blog id</th>
                                             <th>Image</th>
                                             <th>Posted by</th>
-                                            <th>Date</th>
-                                            <th>Time</th>
+                                            <th>Date and Time</th>
                                             <th>title</th>
                                             <th>Paragraph</th>
                                             
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>2.jpg</td>
-                                            <td>Kushal</td>
-                                            <td>3-April-2021</td>
-                                            <td>11:00 AM</td>
-                                            <td>Thumb Sucking in babies</td>
-                                            <td>hey this is a sample product</td>
-                                            <td><a href="#" class="fa fa-edit" data-toggle="modal"
-                                                    data-target="#update_product_modal"></a> <a href="#"
+                                    <?php 
+                                        $sql = "SELECT * FROM `blogs`";
+                                        $result = mysqli_query($conn,$sql);
+                                        while($row = mysqli_fetch_assoc($result)){
+                                            $blogid = $row['blog_id'];
+                                            $blogtitle = $row['blog_title'];
+                                            $blogdesc = $row['blog_description'];
+                                            $blogimage = $row['blog_image'];
+                                            $blogdatetime = $row['blog_date'];
+                                            $blogauthor = $row['blog_author'];
+
+                                            echo '<tr>
+                                            <td>'.$blogid.'</td>
+                                            <td><img src="img/'.$blogimage.'" alt="" class="blog"></td>
+                                            <td>'.$blogauthor.'</td>
+                                            <td>'.$blogdatetime.'</td>
+                                            <td>'.$blogtitle.'</td>
+                                            <td>'.$blogdesc.'</td>
+                                            <td><a href="updateBlog.php?blogid='.$blogid.'" class="fa fa-edit"></a> <a href="deleteBlog.php?blogid='.$blogid.'"
                                                     class="fa fa-trash" style="float: right;"></a></td>
-                                        </tr>
+                                        </tr>';
+                                        }
+                                    ?>
+                                    
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -83,47 +102,33 @@ include 'header_admin.php'
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form id="add-product-form" enctype="multipart/form-data">
+                                    <form id="add-product-form" enctype="multipart/form-data" action="addBlog.php" method="post">
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label>Blog Image <small>(format: jpg, jpeg, png)</small></label>
-                                                    <input type="file" name="product_image" class="form-control">
+                                                    <input type="file" name="blog_image" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label>Posted by</label>
-                                                    <input type="number" name="posted by" class="form-control"
-                                                        placeholder="Name">
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Name" name="blog_author">
                                                 </div>
                                             </div>
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label>Date</label>
-                                                    <input type="number" name="date" class="form-control"
-                                                        placeholder="Date">
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label>Time</label>
-                                                    <input type="number" name="Time" class="form-control"
-                                                        placeholder="Time">
-                                                </div>
-                                            </div>
+                                           
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label>Title</label>
-                                                    <textarea class="form-control" name="title"
+                                                    <textarea class="form-control" name="blog_title"
                                                         placeholder="Title"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">
-                                                    <label>Paragraph</label>
-                                                    <textarea class="form-control" name="paragraph"
+                                                    <label>Description</label>
+                                                    <textarea class="form-control" name="blog_description"
                                                         placeholder="Paragraph"></textarea>
                                                 </div>
                                             </div>
@@ -136,7 +141,7 @@ include 'header_admin.php'
 
                                             <input type="hidden" name="add_product" value="1">
                                             <div class="col-12">
-                                                <button type="button" class="btn btn-primary add-product">Add
+                                                <button type="submit" class="btn btn-primary add-product">Add
                                                     Blog</button>
                                             </div>
                                         </div>

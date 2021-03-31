@@ -99,7 +99,7 @@ session_start();
                     <li><a class="tag_m" href="admin_home.php">Home</a></li>
                     <!-- <li><a class="tag_m" href="detail.html">Detail</a></li> -->
                     <li><a class="tag_m" href="orders.php">Orders</a></li>
-                    <li><a class="tag_m" href="blog.php">Blog</a></li>
+                    <li><a class="tag_m" href="admin_blogs.php">Blog</a></li>
                     <li><a class="tag_m" href="admin_customize_products.php">Customize Products</a></li>
                     <li><a class="tag_m" href="admin_unique_products.php">Unique Products</a></li>
                     <li><a class="tag_m" href="admin_request_products.php">Request Products</a></li>
