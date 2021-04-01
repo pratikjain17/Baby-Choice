@@ -35,7 +35,7 @@ include 'header.php';
     $address = $row['address'];
 
     echo '<div class="jumbotron">
-    <h3 class="text-5 font-weight-400 d-flex align-items-center mb-4">Personal Details<a href="' . $_SERVER['REQUEST_URI'] . '" data-toggle="modal" class="ml-auto text-2 text-uppercase btn-link"><span class="mr-1"><i class="fa fa-edit"></i></span>Edit</a></h3>
+    <h3 class="text-5 font-weight-400 d-flex align-items-center mb-4">Personal Details<a href="' . $_SERVER['REQUEST_URI'] . '" data-toggle="modal" class="ml-auto text-2 text-uppercase btn-link">< style="float: right;" i class="fa fa-edit"></i></a></h3>
     <hr class="mx-n4 mb-4">
 
       <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Name:</p>

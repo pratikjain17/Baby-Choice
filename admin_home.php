@@ -21,7 +21,7 @@ include 'header_admin.php'
 </head>
 
 <body>
-<video height="100%" width="100%" autoplay="true" loop="true" muted="true">
+<video style="fill: height"auto" width="100%";" autoplay="true" loop="true" muted="true">
   <source src="img/video.mp4" type="video/mp4">
 </video>
     <?php
