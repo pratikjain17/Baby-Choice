@@ -363,8 +363,8 @@
 			echo '<div class="center_3r2 clearfix">
 			<div class="col-sm-3 space_left">
 			 <div class="center_3r2i text-center clearfix">
-									<a href="#"><img class="mgt iw" src="img/'.$product_image.'" alt=""></a>
-									<p><a href="#">'.$product_name.'</a></p>
+									<a href="detail.php"><img class="mgt iw" src="img/'.$product_image.'" alt=""></a>
+									<p><a href="detaial.php">'.$product_name.'</a></p>
 									<span class="span_1">
 									 <i class="fa fa-star"></i>
 									 <i class="fa fa-star"></i>

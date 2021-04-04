@@ -33,7 +33,7 @@ include 'header.php';
 							</ul>
 						</div><br>
 						<?php
-						$sql = "SELECT * FROM `blogs`";
+						$sql = "SELECT * FROM `blogs` LIMIT 3";
 						$result = mysqli_query($conn, $sql);
 						while ($row = mysqli_fetch_assoc($result)) {
 							$blogid = $row['blog_id'];
@@ -55,41 +55,15 @@ include 'header.php';
 			<p>' . $blogdesc . ' </p>
 			<h5><a class="button mgt" href="blog_detail.php">READ MORE</a></h5>
 		</div>
+		<br>
+		<br>
 		';
 						}
 						?>
-						<!-- <div class="blog_1 clearfix">
-							<a href="blog_detail1.php"><img src="img/44.jpg" class="iw" alt="abc"></a>
-							<h3><a href="blog_detail1.php">Gift Ideas for the Newborn baby in India</a></h3>
-							<ul>
-								<li><i class="fa fa-user"></i> Sudheer Madeshia</li>
-								<li><i class="fa fa-comments"></i> 4 Comments</li>
-								<li><i class="fa fa-calendar"></i> 12/03/2021</li>
-								<li><i class="fa fa-clock-o"></i> 10:00 AM</li>
-							</ul>
-							<p>A baby’s birth is one of the most precious and beautiful occasions in your life that you
-								can’t wait for long to welcome him in the family. You will be overjoyed as new parents
-								with lots of enthusiasm. You can’t help but share your joy with others as soon as your
-								baby is born. In an attempt to share the happiness of the family having a new-born and
-								you want to express your gratitude when your close relatives or friends may visit to see
-								...</p>
-							<h5><a class="button mgt" href="blog_detail1.php">READ MORE</a></h5>
-						</div>
+						
 
-						<div class="blog_1 clearfix">
-							<a href="blog_detail2.php"><img src="img/46.jpg" class="iw" alt="abc"></a>
-							<h3><a href="blog_detail2.php">Decorate Baby’s Room on a Budget</a></h3>
-							<ul>
-								<li><i class="fa fa-user"></i> Akash Baranwal</li>
-								<li><i class="fa fa-comments"></i> 4 Comments</li>
-								<li><i class="fa fa-calendar"></i> 12/03/2021</li>
-								<li><i class="fa fa-clock-o"></i> 10:00 AM</li>
-							</ul>
-							<p>If you’re prepared to put an extra effort, you can find some special bargains that won’t
-								break your budget. This article enlists you all the things you can do while planning to
-								decorate your own baby room ...</p>
-							<h5><a class="button mgt" href="blog_detail2.php">READ MORE</a></h5>
-						</div> -->
+
+
 
 						<div class="center_product_1r4r text-right clearfix">
 							<ul class="pagination">
@@ -217,7 +191,7 @@ include 'header.php';
 							<hr>
 							<h6>Sign Up for Our Newsletter!</h6>
 							<input class="form-control" placeholder="Subscribe" type="text">
-							<h6><a class="button mgt" href="blog_detail.html">Subscribe</a></h6>
+							<h6><a class="button mgt" href="#">Subscribe</a></h6>
 						</div>
 
 						<div class="blog_right clearfix">
@@ -225,12 +199,12 @@ include 'header.php';
 							<hr>
 							<div class="center_p1i clearfix">
 								<ul class="mgt">
-									<li><a href="blog_detail3.php">LATEST POST</a></li> |
-									<li><a class="col_2" href="blog_detail3.php">READ POST</a></li>
+									<li><a href="blog_detail.php">LATEST POST</a></li> |
+									<li><a class="col_2" href="blog_detail.php">READ POST</a></li>
 								</ul>
 							</div><br>
 							<img src="img/35.jpg" class="iw" alt="abc">
-							<h5><a href="blog_detail3.php">Top 5 Tips For Keeping Your Baby Safe</a></h5>
+							<h5><a href="blog_detail.php">Top 5 Tips For Keeping Your Baby Safe</a></h5>
 							<ul>
 								<li><i class="fa fa-comments"></i> 4 Comments</li>
 								<li><i class="fa fa-calendar"></i> 16/03/2021</li>
@@ -244,12 +218,12 @@ include 'header.php';
 							<hr>
 							<div class="center_p1i clearfix">
 								<ul class="mgt">
-									<li><a href="blog_detail4.php">LATEST POST</a></li> |
-									<li><a class="col_2" href="blog_detail4.php">READ POST</a></li>
+									<li><a href="blog_detail.php">LATEST POST</a></li> |
+									<li><a class="col_2" href="blog_detail.php">READ POST</a></li>
 								</ul>
 							</div><br>
 							<img src="img/36.jpg" class="iw" alt="abc">
-							<h5><a href="blog_detail4.php">How to Save Money When Buying For Baby</a></h5>
+							<h5><a href="blog_detail.php">How to Save Money When Buying For Baby</a></h5>
 							<ul>
 								<li><i class="fa fa-comments"></i> 4 Comments</li>
 								<li><i class="fa fa-calendar"></i> 15/03/2021</li>

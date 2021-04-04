@@ -7,27 +7,27 @@
 	  <h5 class="mgt col_2">CONTACT US</h5><br>
 	  <div class="footer_1ii mgt clearfix">
 	   <div class="col-sm-2 space_left">
-	    <span class="col"><i class="fa fa-map-marker"></i></span>
+	   <span class="col"><a href="contact.php" style="color: white;"><i class="fa fa-map-marker"></i></a></span>
 	   </div>
 	   <div class="col-sm-10">
-	    <p class="col_2 mgt">Baby Choice, shop no.7, Golden Nest, Mira-Bhaynadar Road, Thane 401107, Maharashtra INDIA</p>
+	    <p class="mgt"><a class="col_2" href="contact.php">Baby Choice, shop no.7, Golden Nest, Mira-Bhaynadar Road, Thane 401107, Maharashtra INDIA</a></p>
 	   </div>
 	  </div>
 	  <div class="footer_1ii clearfix">
 	   <div class="col-sm-2 space_left">
-	    <span class="col"><i class="fa fa-phone"></i></span>
+	    <span class="col"><a href="tel:+91 9852162236" style="color: white;"><i class="fa fa-phone"></i></a></span>
 	   </div>
 	   <div class="col-sm-10">
-	    <p class="col_2 mgt">+91 9852162236<br>
-+91 02254567</p>
+	   <p class="mgt"><a class="col_2" href="tel:+91 9852162236">+91 9852162236</a></p>
+	   <p class="mgt"><a class="col_2" href="tel:+91 02254567">+91 02254567</a></p>
 	   </div>
 	  </div>
 	  <div class="footer_1ii clearfix">
 	   <div class="col-sm-2 space_left">
-	    <span class="col"><i class="fa fa-envelope"></i></span>
+	    <span class="col"><a href="mailto:babychoice@gmail.com" style="color: white;"><i class="fa fa-envelope"></i></a></span>
 	   </div>
 	   <div class="col-sm-10">
-	    <p class="mgt"><a class="col_2" href="#">babychoice@gmail.com</a></p>
+	    <p class="mgt"><a class="col_2" href="mailto:babychoice@gmail.com">babychoice@gmail.com</a></p>
 	   </div>
 	  </div>
 	 </div>
@@ -39,8 +39,8 @@
 	   <li><a class="col_2" href="my_account.php">My Account</a></li>
 	   <li><a class="col_2" href="#">Order History</a></li>
 	   <li><a class="col_2" href="#">FAQ</a></li>
-	   <li><a class="col_2" href="#">Specials</a></li>
-	   <li><a class="col_2" href="#">Help Center</a></li>
+	   <li><a class="col_2" href="unique_products.php">Specials</a></li>
+	   <li><a class="col_2" href="contact.php">Help Center</a></li>
 	  </ul>
 	 </div>
 	</div>
@@ -49,22 +49,22 @@
 	  <h5 class="mgt col_2">CORPORATION</h5><br>
 	  <ul class="mgt">
 	   <li><a class="col_2" href="#">About us</a></li>
-	   <li><a class="col_2" href="#">Customer Service</a></li>
+	   <li><a class="col_2" href="contact.php">Customer Service</a></li>
 	   <li><a class="col_2" href="#">Company</a></li>
-	   <li><a class="col_2" href="#">Investor Relations</a></li>
-	   <li><a class="col_2" href="#">Advanced Search</a></li>
+	   <li><a class="col_2" href="contact.php">Contact Us</a></li>
+	   <li><a class="col_2" href="admin_login.php">Admin</a></li>
 	  </ul>
 	 </div>
 	</div>
 	<div class="col-sm-3">
 	 <div class="footer_1i clearfix">
-	  <h5 class="mgt col_2">WHY CHOOSE US</h5><br>
+	  <h5 class="mgt col_2">WHY CHOOSE US ?</h5><br>
 	  <ul class="mgt">
-	   <li><a class="col_2" href="#">Shopping Guide</a></li>
-	   <li><a class="col_2" href="blog.php">Blog</a></li>
-	   <li><a class="col_2" href="#">Company</a></li>
-	   <li><a class="col_2" href="#">Investor Relations</a></li>
-	   <li><a class="col_2" href="contact.php">Contact Us</a></li>
+	   <li><a class="col_2" href="#">High Quality Products</a></li>
+	   <li><a class="col_2" href="blog.php">Blogs</a></li>
+	   <li><a class="col_2" href="product.php">Best Deals</a></li>
+	   <li><a class="col_2" href="#">Brands</a></li>
+	   <li><a class="col_2" href="unique_products.php">Unique Products</a></li>
 	  </ul>
 	 </div>
 	</div>

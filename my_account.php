@@ -21,6 +21,8 @@ include 'header.php';
 </head>
 
 <body>
+<br>
+<br>
   <?php
   if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
@@ -31,15 +33,18 @@ include 'header.php';
     $row = mysqli_fetch_assoc($result);
     $fname = $row['fname'];
     $lname = $row['lname'];
+    $email = $row['email'];
     $number = $row['mobile'];
     $address = $row['address'];
 
     echo '<div class="jumbotron">
-    <h3 class="text-5 font-weight-400 d-flex align-items-center mb-4">Personal Details<a href="' . $_SERVER['REQUEST_URI'] . '" data-toggle="modal" class="ml-auto text-2 text-uppercase btn-link">< style="float: right;" i class="fa fa-edit"></i></a></h3>
+    <h3 class="text-5 font-weight-400 d-flex align-items-center mb-4">Personal Details<a href="' . $_SERVER['REQUEST_URI'] . '" data-toggle="modal" class="ml-auto text-2 text-uppercase btn-link"><i class="fa fa-edit" style="float: right;" href="#"></i></a></h3>
     <hr class="mx-n4 mb-4">
 
       <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Name:</p>
-      <p class="col-sm-9 text-3">' . $fname . '' . $lname . '</p>
+      <p class="col-sm-9 text-3">' . $fname . ' ' . $lname . '</p>
+      <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Email</p>
+      <p class="col-sm-9 text-3">' . $email . '</p>
       <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Phone Number</p>
       <p class="col-sm-9 text-3">' . $number . '</p>
       <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Address:</p>

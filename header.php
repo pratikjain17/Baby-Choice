@@ -78,7 +78,7 @@ else{
                        </ul>
                   </li>
 				  <li><a class="m_tag" href="my_account.php">My Account</a></li>
-				  <li><a class="m_tag" href="wishlist.php">Wishlist</a></li>
+				  <!-- <li><a class="m_tag" href="wishlist.php">Wishlist</a></li> -->
 				  <li><a class="m_tag" href="cart.php?usercart=<?php echo $userid ?>">My Cart</a></li>
 				  <li><a class="m_tag" href="checkout.php">Checkout</a></li>
 				  <?php
@@ -117,10 +117,10 @@ else{
 	 <div class="top_2r text-center clearfix">
 	 <?php 
 	 	if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
-			 echo '<h6 class="mgt"><a href="#"><i class="fa fa-shopping-basket"></i> Cart Total Rs.'. $_SESSION['cartBill'] .' </a></h6>';
+			 echo '<h6 class="mgt"><a href="#"><i class="fa fa-shopping-basket"></i> Cart Total Rs. '. $_SESSION['cartBill'] .' </a></h6>';
 		 }
 		 else{
-			 echo '<h6 class="mgt"><a href="#"><i class="fa fa-shopping-basket"></i> No items,please login / Rs.0 </a></h6>';
+			 echo '<h6 class="mgt"><a href="#"><i class="fa fa-shopping-basket"></i> No items, please login / Rs. 0 </a></h6>';
 		 }
 	 ?>
 	  
@@ -157,47 +157,47 @@ else{
 				<ul class="dropdown-menu dropdown-menu-large row">
 					<li class="col-sm-3">
 						<ul>
-							<li class="dropdown-header">Glyphicons</li>
-							<li><a href="#">Available glyphs</a></li>
-							<li class="disabled"><a href="#">How to use</a></li>
-							<li><a href="#">Examples</a></li>
-							<li><a href="#">Example</a></li>
-							<li><a href="#">Aligninment options</a></li>
-							<li><a href="#">Headers</a></li>
-							<li><a href="#">Disabled menu items</a></li>
+							<li class="dropdown-header">Cloths</li>
+							<li><a href="#">1st Step</a></li>
+							<li class="disabled"><a href="#">3 Pin</a></li>
+							<li><a href="#">Aatike</a></li>
+							<li><a href="#">ABC</a></li>
+							<li><a href="#">Abracadabra</a></li>
+							<li><a href="#">Adore</a></li>
+							<li><a href="#">All Cute Things</a></li>
 						</ul>
 					</li>
 					<li class="col-sm-3">
 						<ul>
-							<li class="dropdown-header">Button groups</li>
-							<li><a href="#">Basic example</a></li>
-							<li><a href="#">Button toolbar</a></li>
-							<li><a href="#">Sizing</a></li>
-							<li><a href="#">Nesting</a></li>
-							<li><a href="#">Vertical variation</a></li>
-							<li><a href="#">Single button dropdowns</a></li>
+							<li class="dropdown-header">Food & Products</li>
+							<li><a href="#">Pediasure</a></li>
+							<li><a href="#">Art & Fun</a></li>
+							<li><a href="#">Nestle</a></li>
+							<li><a href="#">Aww So Cute</a></li>
+							<li><a href="#">Babies</a></li>
+							<li><a href="#">Azafran Organics BABY</a></li>
 						</ul>
 					</li>
 					<li class="col-sm-3">
 						<ul>
-							<li class="dropdown-header">Button groups</li>
-							<li><a href="#">Basic example</a></li>
-							<li><a href="#">Button toolbar</a></li>
-							<li><a href="#">Sizing</a></li>
-							<li><a href="#">Nesting</a></li>
-							<li><a href="#">Vertical variation</a></li>
-							<li><a href="#">Single button dropdowns</a></li>
+							<li class="dropdown-header">Diapers</li>
+							<li><a href="#">Pampers</a></li>
+							<li><a href="#">Mee Mee</a></li>
+							<li><a href="#">Huggies</a></li>
+							<li><a href="#">Pigeon</a></li>
+							<li><a href="#">Chicco</a></li>
+							<li><a href="#">Mother Care</a></li>
 						</ul>
 					</li>
 					<li class="col-sm-3">
 						<ul>
-							<li class="dropdown-header">Button groups</li>
-							<li><a href="#">Basic example</a></li>
-							<li><a href="#">Button toolbar</a></li>
-							<li><a href="#">Sizing</a></li>
-							<li><a href="#">Nesting</a></li>
-							<li><a href="#">Vertical variation</a></li>
-							<li><a href="#">Single button dropdowns</a></li>
+							<li class="dropdown-header">Daily Needs</li>
+							<li><a href="#">Philips Avent</a></li>
+							<li><a href="#">Johnson</a></li>
+							<li><a href="#">Himalaya</a></li>
+							<li><a href="#">Dabur</a></li>
+							<li><a href="#">Sebamed</a></li>
+							<li><a href="#">Mamaearth</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -243,7 +243,7 @@ else{
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 				<ul class="nav navbar-nav">
-				<li><a class="tag_m active_tab" href="index.php">Home</a></li>
+				<li><a class="tag_m" href="index.php">Home</a></li>
 				<li><a class="tag_m" href="product.php">Shop</a></li>
 				<!-- <li><a class="tag_m" href="detail.php">Detail</a></li> -->
 				<li><a class="tag_m" href="blog.php">Blog</a></li>
@@ -251,11 +251,19 @@ else{
 				<li><a class="tag_m" href="unique_products.php">Unique Products</a></li>
 				<li><a class="tag_m" href="request_products.php">Request Products</a></li>
 				<li><a class="tag_m" href="my_account.php">My Account</a></li>
-				<li><a class="tag_m" href="wishlist.php">Wishlist</a></li>
+				<!-- <li><a class="tag_m" href="wishlist.php">Wishlist</a></li> -->
 				<li><a class="tag_m" href="cart.php">Cart</a></li>
 				<li><a class="tag_m" href="checkout.php">Checkout</a></li> 
 				<li><a class="tag_m" href="register.php">Register</a></li>
-				<li><a class="tag_m" href="login.php">Log In</a></li>
+				<?php
+				   	if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+						   echo '<li><a class="tag_m" href="logout.php">Logout</a></li>';
+					   }
+					else{
+						echo '<li><a class="tag_m" href="login.php">Login</a></li>';
+					}
+				  ?>
+				
 				<li><a class="tag_m" href="contact.php">Contact</a></li>
 				<li class="dropdown dropdown-large">
 				<a href="#" class="dropdown-toggle tag_m" data-toggle="dropdown">Brands<b class="caret"></b></a>
@@ -263,47 +271,47 @@ else{
 				<ul class="dropdown-menu dropdown-menu-large row">
 					<li class="col-sm-3">
 						<ul>
-							<li class="dropdown-header">Glyphicons</li>
-							<li><a href="#">Available glyphs</a></li>
-							<li class="disabled"><a href="#">How to use</a></li>
-							<li><a href="#">Examples</a></li>
-							<li><a href="#">Example</a></li>
-							<li><a href="#">Aligninment options</a></li>
-							<li><a href="#">Headers</a></li>
-							<li><a href="#">Disabled menu items</a></li>
+							<li class="dropdown-header">Cloths</li>
+							<li><a href="#">1st Step</a></li>
+							<li class="disabled"><a href="#">3 Pin</a></li>
+							<li><a href="#">Aatike</a></li>
+							<li><a href="#">ABC</a></li>
+							<li><a href="#">Abracadabra</a></li>
+							<li><a href="#">Adore</a></li>
+							<li><a href="#">All Cute Things</a></li>
 						</ul>
 					</li>
 					<li class="col-sm-3">
 						<ul>
-							<li class="dropdown-header">Button groups</li>
-							<li><a href="#">Basic example</a></li>
-							<li><a href="#">Button toolbar</a></li>
-							<li><a href="#">Sizing</a></li>
-							<li><a href="#">Nesting</a></li>
-							<li><a href="#">Vertical variation</a></li>
-							<li><a href="#">Single button dropdowns</a></li>
+							<li class="dropdown-header">Food & Products</li>
+							<li><a href="#">Pediasure</a></li>
+							<li><a href="#">Art & Fun</a></li>
+							<li><a href="#">Nestle</a></li>
+							<li><a href="#">Aww So Cute</a></li>
+							<li><a href="#">Babies</a></li>
+							<li><a href="#">Azafran Organics BABY</a></li>
 						</ul>
 					</li>
 					<li class="col-sm-3">
 						<ul>
-							<li class="dropdown-header">Button groups</li>
-							<li><a href="#">Basic example</a></li>
-							<li><a href="#">Button toolbar</a></li>
-							<li><a href="#">Sizing</a></li>
-							<li><a href="#">Nesting</a></li>
-							<li><a href="#">Vertical variation</a></li>
-							<li><a href="#">Single button dropdowns</a></li>
+							<li class="dropdown-header">Diapers</li>
+							<li><a href="#">Pampers</a></li>
+							<li><a href="#">Mee Mee</a></li>
+							<li><a href="#">Huggies</a></li>
+							<li><a href="#">Pigeon</a></li>
+							<li><a href="#">Chicco</a></li>
+							<li><a href="#">Mother Care</a></li>
 						</ul>
 					</li>
 					<li class="col-sm-3">
 						<ul>
-							<li class="dropdown-header">Button groups</li>
-							<li><a href="#">Basic example</a></li>
-							<li><a href="#">Button toolbar</a></li>
-							<li><a href="#">Sizing</a></li>
-							<li><a href="#">Nesting</a></li>
-							<li><a href="#">Vertical variation</a></li>
-							<li><a href="#">Single button dropdowns</a></li>
+							<li class="dropdown-header">Daily Needs</li>
+							<li><a href="#">Philips Avent</a></li>
+							<li><a href="#">Johnson</a></li>
+							<li><a href="#">Himalaya</a></li>
+							<li><a href="#">Dabur</a></li>
+							<li><a href="#">Sebamed</a></li>
+							<li><a href="#">Mamaearth</a></li>
 						</ul>
 					</li>
 				</ul>

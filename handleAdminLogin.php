@@ -17,6 +17,7 @@
                 if($password == $row['password']){
                     session_start();
                     $_SESSION['loggedin'] = true;
+                    $_SESSION['fname'] = $row['fname'];
                     $_SESSION['adminemail'] = $email;
                     // $_SESSION['studentusername'] = $row['student_username'];
                     echo "logged in". $email;
@@ -24,12 +25,12 @@
                 }
                 else{
                     $error = "Password incorrect";
-                    header("Location: /Baby%20Choice/admin_home.php?error=$error");
+                    header("Location: /Baby%20Choice/admin_login.php?error=$error");
                 }
         }
         else{
             $error = "Unable to login";
-            header("Location: /Baby%20Choice/admin_home.php?error=$error");   
+            header("Location: /Baby%20Choice/admin_login.php?error=$error");   
         }
     }
 ?>

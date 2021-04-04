@@ -1,5 +1,7 @@
 <?php
+	include 'db_connection.php';
     include 'header.php';
+	
     ?>
 
 <!DOCTYPE html>
@@ -27,7 +29,7 @@
     <div class="col-sm-3">
 	  <div class="center_p1i clearfix">
 	   <ul class="mgt">
-	    <li><a href="#">Home</a></li> | 
+	    <li><a href="index.php">Home</a></li> | 
 		<li class="col_2">Product</li>
 	   </ul>
 	  </div>
@@ -147,6 +149,21 @@
 	</div>
 	  </div>
 	</div>
+	<?php 
+        // $productid = $_GET['productid'];
+        $sql = "SELECT * FROM `products` WHERE `p_subcategory` = 1 LIMIT 1";
+        $result = mysqli_query($conn,$sql);
+        $noResult = false;
+        while($row = mysqli_fetch_assoc($result)){
+            $product_id = $row['p_id'];
+            $product_name = $row['p_name'];
+            $product_desc = $row['p_description'];
+            $product_category_id = $row['p_category'];
+            $product_price = $row['p_price'];
+			$product_discountprice = $row['p_discountprice'];
+			$product_image = $row['p_image'];
+			$product_tittle =$row['p_tittle'];
+			echo '
 	<div class="col-sm-9">
     <div class="detail_r clearfix">
 	  <div class="col-sm-5 space_left">
@@ -156,31 +173,31 @@
              <div class="carousel-inner cont-slider">
 
     <div class="item">
-      <img alt="" title="" src="img/40.jpg" class="iw">    </div>
+      <img alt="" title="" src="img/'.$product_image.'" class="iw">    </div>
     <div class="item">
-      <img alt="" title="" src="img/41.jpg" class="iw">    </div>
+      <img alt="" title="" src="img/'.$product_image.'" class="iw">    </div>
     <div class="item">
-      <img alt="" title="" src="img/42.jpg" class="iw">    </div>
+      <img alt="" title="" src="img/'.$product_image.'" class="iw">    </div>
     <div class="item active">
-      <img alt="" title="" src="img/43.jpg" class="iw">    </div>
+      <img alt="" title="" src="img/'.$product_image.'" class="iw">    </div>
   </div>
              <!-- Indicators -->
              <ol class="carousel-indicators">
     <li class="" data-slide-to="0" data-target="#article-photo-carousel">
-      <img alt="" src="img/40.jpg">    </li>
+      <img alt="" src="img/'.$product_image.'">    </li>
     <li class="" data-slide-to="1" data-target="#article-photo-carousel">
-      <img alt="" src="img/41.jpg">    </li>
+      <img alt="" src="img/'.$product_image.'">    </li>
     <li class="" data-slide-to="2" data-target="#article-photo-carousel">
-      <img alt="" src="img/42.jpg">    </li>
+      <img alt="" src="img/'.$product_image.'">    </li>
     <li class="active" data-slide-to="3" data-target="#article-photo-carousel">
-      <img alt="" src="img/43.jpg">    </li>
+      <img alt="" src="img/'.$product_image.'">    </li>
   </ol>
            </div>
 	   </div>
 	  </div>
 	  <div class="col-sm-7 space_left">
 	   <div class="center_shop_1ri clearfix">
-	     <h2 class="mgt">Floral Print Buttoned</h2>
+	     <h2 class="mgt">'.$product_name.'</h2>
 		 <h6>
 	   <span>
 	    <i class="fa fa-star"></i>
@@ -192,8 +209,8 @@
 	    <h6>
 	   <span>Availability :</span>
 	   <span class="col_1">In Stock</span>	   </h6>
-	   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-	   <h4 class="col_1 normal"><span>Rs. 55.00</span> Rs. 40.00</h4>
+	   <p>'.$product_desc.'</p>
+	   <h4 class="col_1 normal"><span>Rs. '.$product_price.'</span> Rs. '.$product_discountprice.'</h4>
 	   <h5>Quantity:</h5>
 	   <div class="input-group number-spinner">
 				<span class="input-group-btn">
@@ -203,10 +220,14 @@
 				<span class="input-group-btn">
 					<button class="btn btn-default" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
 				</span>			</div>
-	   <h5 class="mgt"><a class="button " href="#"><i class="fa fa-shopping-cart"></i> ADD TO CART</a></h5>
+	   <h5 class="mgt"><a class="button " href="cart.php?productid='.$product_id.'"><i class="fa fa-shopping-cart"></i> ADD TO CART</a></h5>
 	   </div>
 	  </div>
 	</div>
+	';
+		}
+		?>
+		
 	<div class="center_shop_2r clearfix">
 	   <div class="center_shop_2ri clearfix">
 		        <ul class="nav nav-tabs mgt">
@@ -312,17 +333,33 @@
 				</div>
 		</div>
 	 </div>
+
 	 <div class="arriv_2 clearfix">
+	 <?php 
+        // $productid = $_GET['productid'];
+        $sql = "SELECT * FROM `products` WHERE `p_subcategory` = 2 LIMIT 3";
+        $result = mysqli_query($conn,$sql);
+        $noResult = false;
+        while($row = mysqli_fetch_assoc($result)){
+            $product_id = $row['p_id'];
+            $product_name = $row['p_name'];
+            $product_desc = $row['p_description'];
+            $product_category_id = $row['p_category'];
+            $product_price = $row['p_price'];
+			$product_discountprice = $row['p_discountprice'];
+			$product_image = $row['p_image'];
+			echo '
+	 
                         <div class="col-sm-4">
 						 <div class="arriv_2m clearfix">
 						  <div class="arriv_2m1 clearfix">
-							<a href="#"><img src="img/28.jpg" alt="abc" class="iw"></a>						  </div>
+							<a href="#"><img src="img/'.$product_image.'" alt="abc" class="iw"></a>						  </div>
 						  <div class="arriv_2m2 clearfix">
 						   <h5 class="text-center mgt">SALE</h5>
 						  </div>
 						  <div class="arriv_2m3 clearfix">
 						   <h5 class="bold mgt">PRODUCT</h5>
-						   <p><a href="#">Naminos elementum disus tincidunts cosmo de cosmopolis</a></p>
+						   <p><a href="#">'.$product_name.'</a></p>
 						   <span class="span_1">
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
@@ -330,13 +367,17 @@
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>						   </span>
 						   <h5>
-						   <span class="span_2">Rs. 45.00</span>
-						   <span class="span_3 col_2"> Rs. 34.00</span> 
+						   <span class="span_2">Rs. '.$product_price.'</span>
+						   <span class="span_3 col_2"> Rs. '.$product_discountprice.'</span> 
 					   </h5>
 						  </div>
 						 </div>
 	                    </div>
-						<div class="col-sm-4">
+
+						';
+		}
+		?>
+						<!-- <div class="col-sm-4">
 						 <div class="arriv_2m clearfix">
 						  <div class="arriv_2m1 clearfix">
 							<a href="#"><img src="img/29.jpg" alt="abc" class="iw"></a>						  </div>
@@ -381,8 +422,8 @@
 					   </h5>
 						  </div>
 						 </div>
-						</div>
-                       </div>
+						</div> --> 
+                       </div> 
 	</div>
    </div>
 

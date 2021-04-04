@@ -311,12 +311,12 @@ Babies who are presently on teething, may have the habit of thumb sucking so as 
 	   <hr>
 	   <div class="center_p1i clearfix">
 	   <ul class="mgt">
-	    <li><a href="blog_detail3.php">LATEST POST</a></li> | 
-		<li><a class="col_2" href="blog_detail3.php">READ POST</a></li>
+	    <li><a href="blog_detail.php">LATEST POST</a></li> | 
+		<li><a class="col_2" href="blog_detail.php">READ POST</a></li>
 	   </ul>
 	  </div><br>
 	   <img src="img/35.jpg" class="iw" alt="abc">
-	   <h5><a href="blog_detail3.php">Top 5 Tips For Keeping Your Baby Safe</a></h5>
+	   <h5><a href="blog_detail.php">Top 5 Tips For Keeping Your Baby Safe</a></h5>
 	   <ul>
 		<li><i class="fa fa-comments"></i> 4 Comments</li>
 		<li><i class="fa fa-calendar"></i> 16/03/2021</li>
@@ -329,12 +329,12 @@ Babies who are presently on teething, may have the habit of thumb sucking so as 
 	   <hr>
 	   <div class="center_p1i clearfix">
 	   <ul class="mgt">
-	    <li><a href="blog_detail4.php">LATEST POST</a></li> | 
-		<li><a class="col_2" href="blog_detail4.php">READ POST</a></li>
+	    <li><a href="blog_detail.php">LATEST POST</a></li> | 
+		<li><a class="col_2" href="blog_detail.php">READ POST</a></li>
 	   </ul>
 	  </div><br>
 	   <img src="img/36.jpg" class="iw" alt="abc">
-	   <h5><a href="blog_detail4.php">How to Save Money When Buying For Baby</a></h5>
+	   <h5><a href="blog_detail.php">How to Save Money When Buying For Baby</a></h5>
 	   <ul>
 		<li><i class="fa fa-comments"></i> 4 Comments</li>
 		<li><i class="fa fa-calendar"></i> 15/03/2021</li>
