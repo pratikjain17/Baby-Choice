@@ -35,17 +35,24 @@
      <br>
      <p style="color:black;">Here you can customize product by uploading your favourite image of your baby’s or yourself for your baby's on some products like pillow, blankets etc.</p>
     </div>
-         <br><br>
-	  <form action="#" method="post" enctype="multipart/form-data">
+         <br>
+	  <form action="cp_action.php" method="post" enctype="multipart/form-data">
+    <div class="register_1li1 clearfix">
+	   <div class="col-sm-12 space_all">
+	    <div class="register_1li1l clearfix">
+		 <h5>Enter Your Name *</h5>
+		 <input class="form-control" type="text" name="u_name" required>
+		</div>
+	   </div>
+	  </div>
+    <br>
 	  <div class="register_1li1 clearfix">
 	   <div class="col-sm-12 space_all">
 	    <div class="register_1li1l clearfix">
 		 <h5>Please upload your image</h5>
     <br>
-     <input type="file" class="button" name="fileToUpload" id="fileToUpload"><br></div>
-    <input type="submit"  class="button_1" value="Upload Image" name="submit" required>
-    <br>
-    <br>
+     <input type="file" class="button_1" name="cp_img"><br></div>
+    <!-- <input type="submit"  class="button_1" value="Upload Image" name="fileToUpload" required> -->
     <br>
     <br>
 		</div>
@@ -53,11 +60,11 @@
 	  </div>
     <h5 for="products" required>Choose a prduct where you want your image : </h5>
 <br>
-<h5><select name="prodcuts" id="products">
-  <option value="audi">--</option>
-  <option value="volvo">Cushions</option>
-  <option value="saab">Blankets</option>
-  <option value="mercedes">Cups</option>
+<h5><select name="cp_items" required>
+  <option value="--">--</option>
+  <option value="Cushions">Cushions</option>
+  <option value="Blankets">Blankets</option>
+  <option value="Cups">Cups</option>
   
 </select></h5><br><br><br><br>
 
@@ -65,9 +72,18 @@
 	   <div class="col-sm-12 space_all">
 	    <div class="register_1li1l clearfix">
 		 <h5>Any text if you want </h5><br>
-		 <input class="form-control" type="text">
-		 <br><br>
-		 <input type="submit" class="button_1" value="Submit"><span></i></span>
+		 <input class="form-control" type="text" name="cp_text">
+		 
+     <div class="register_1li1 clearfix">
+	   <div class="col-sm-12 space_all">
+	    <div class="register_1li1l clearfix">
+		 <h5>Enter Your Address *</h5>
+		 <input class="form-control" type="text" name="u_address" required>
+		</div>
+	   </div>
+	  </div>
+    <br><br>
+		 <input type="submit" class="button" value="Submit"><span></i></span>
 		
 		</div>
     

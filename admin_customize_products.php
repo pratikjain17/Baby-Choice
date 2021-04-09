@@ -1,5 +1,6 @@
 <?php
-include 'header_admin.php'
+include 'header_admin.php';
+include 'db_connection.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,23 +52,36 @@ include 'header_admin.php'
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>BKY</td>
-                                            <td>Pillow</td>
-                                            <td>2.jpg</td>
-                                            <td>Hellow world !</td>
-                                            <td>550</td>
-                                            <td>COD</td>
-                                            <td>hey this is a sample order</td>
-                                            <td><a href="#"
+                                    <?php
+                                     $sql = "SELECT * FROM `customize`";
+                                     $result = mysqli_query($conn,$sql);
+                                     while($row = mysqli_fetch_assoc($result)){
+                                        $cp_id = $row['cp_id'];
+                                        $u_name =$row['u_name'];
+                                        $cp_items = $row['cp_items'];
+                                        $cp_text = $row['cp_text'];
+                                        $cp_img = $row['cp_img'];
+                                        $u_address = $row['u_address'];
+                                    
+                                       echo' <tr>
+                                            <td>'.$cp_id.'</td>
+                                            <td> </td>
+                                            <td>'.$u_name.'</td>
+                                            <td>'.$cp_items.'</td>
+                                            <td><img src="img/'.$cp_img.'" alt="" class="blog" width="100" height="100"></td>
+                                            <td>'.$cp_text.'</td>
+                                            <td> </td>
+                                            <td> </td>
+                                            <td>'.$u_address.'</td>
+                                            <td><a href="deleteCustomize.php?cp_id='.$cp_id.'"
                                                     class="fa fa-trash" style="float: right;"></a></td>
-                                        </tr>
+                                        </tr>';
+                                     }
+                                     ?>
                                     </tbody>
                                 </table>
                             </div>
-                            </main>
+                            
                         </div>
                     </div>
                     

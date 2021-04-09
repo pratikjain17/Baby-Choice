@@ -38,7 +38,7 @@ include 'header.php';
     $address = $row['address'];
 
     echo '<div class="jumbotron">
-    <h3 class="text-5 font-weight-400 d-flex align-items-center mb-4">Personal Details<a href="' . $_SERVER['REQUEST_URI'] . '" data-toggle="modal" class="ml-auto text-2 text-uppercase btn-link"><i class="fa fa-edit" style="float: right;" href="#"></i></a></h3>
+    <h3 class="text-5 font-weight-400 d-flex align-items-center mb-4">Personal Details<a href="' . $_SERVER['REQUEST_URI'] . '" data-toggle="modal" class="ml-auto text-2 text-uppercase btn-link"><a href="#" data-toggle="modal" data-target="#update_users_modal" class="ml-auto text-2 text-uppercase btn-link"><i class="fa fa-edit" style="float: right;" href="my_account.php?userid='.$userid.'" ></i></a></h3>
     <hr class="mx-n4 mb-4">
 
       <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Name:</p>
@@ -49,9 +49,7 @@ include 'header.php';
       <p class="col-sm-9 text-3">' . $number . '</p>
       <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Address:</p>
       <p class="col-sm-9 text-3">' . $address . '<br>
-        San Ditego,<br>
-        California - 22434,<br>
-        United States.</p>
+       </p>
        <br>
     <br>
     <br>
@@ -67,6 +65,7 @@ include 'header.php';
     <br>
     <br>
     </div>';
+    
   }
   else{
     echo 'You are not logged in to view your account info';
@@ -74,8 +73,89 @@ include 'header.php';
   ?>
 
 
+<!-- <?php
+$error = "";
+$userid = $_GET['user_id'];
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+  $fname = $_POST['fname'];
+  $lname = $_POST['lname'];
+  $email = $_POST['email'];
+  $number = $_POST['mobile'];
+  $address = $_POST['address'];
+    
+    $sql = "UPDATE `user` SET `fname` = '$fname', `lname` = '$lname', `email` = '$email', `mobile` = '$number' `address` = '$address' 
+    WHERE `user`.`user_id` = $userid;";
+   $result = mysqli_query($conn,$sql);
+   
+}
+?>
+<!-- Add Product Modal start -->
+<div class="modal fade" id="update_users_modal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Update User Details</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="add-product-form" enctype="multipart/form-data" action="<?php echo $_SERVER['REQUEST_URI'] ?>"
+                                        method="post">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label>First Name</label>
+                                                    <input type="text" name="first_name" class="form-control"
+                                                        placeholder="Enter First Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label>Last Name</label>
+                                                    <input type="text" name="last_name" class="form-control"
+                                                        placeholder="Enter Last Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label>Email</label>
+                                                    <input type="eamil" name="email"
+                                                        class="form-control" placeholder="Enter Email">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label>Mobile</label>
+                                                    <input type="integer" name="mobile"
+                                                        class="form-control" placeholder="Enter Mobile Number">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label>Address</label>
+                                                    <textarea class="form-control" name="address"
+                                                        placeholder="Enter Address"></textarea>
+                                                </div>
+                                            </div>
+
+                                            <input type="hidden" name="update_user" value="1">
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary add-product">Update</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Product Modal end -->
 
 
+ -->
 
 </body>
 

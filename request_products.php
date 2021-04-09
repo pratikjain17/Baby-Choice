@@ -33,12 +33,12 @@
      <h5>Please fill the details so we can contact you as soon as regarding the products. </h5>
 	  </div>
          
-	  <form action="#" method="post">
+	  <form action="rp_action.php" method="post" enctype="multipart/form-data">
 	  <div class="register_1li1 clearfix">
 	   <div class="col-sm-12 space_all">
 	    <div class="register_1li1l clearfix">
 		 <h5>Enter Your Name *</h5>
-		 <input class="form-control" type="text" name="name" required>
+		 <input class="form-control" type="text" name="u_name" required>
 		</div>
 	   </div>
 	  </div>
@@ -46,12 +46,15 @@
 	   <div class="col-sm-12 space_all">
 	    <div class="register_1li1l clearfix">
 		 <h5>Enter your email *</h5>
+		 </div>
+	   </div>
+	  </div>
 		 <input class="form-control" type="email" name="email" required>
      <div class="register_1li1 clearfix">
 	   <div class="col-sm-12 space_all">
 	    <div class="register_1li1l clearfix">
 		 <h5>Enter Your Mobile Number *</h5>
-		 <input class="form-control" type="text" name="Mobile" required>
+		 <input class="form-control" type="text" name="mobile" required>
 		</div>
 	   </div>
 	  </div>
@@ -75,7 +78,16 @@
 	   <div class="col-sm-12 space_all">
 	    <div class="register_1li1l clearfix">
 		 <h5>Enter Product Details if any </h5>
-		 <input class="form-control" type="text" name="name">
+		 <input class="form-control" type="text" name="p_detail">
+		</div>
+	   </div>
+	  </div>
+	  <div class="register_1li1 clearfix">
+	   <div class="col-sm-12 space_all">
+	    <div class="register_1li1l clearfix">
+		<h5>Upload Product image if any</h5>
+     <input type="file" class="button_1" name="rp_img">
+	 <!-- <input type="submit"  class="button_1" value="Upload Image" name="fileToUpload" required> -->
 		</div>
 	   </div>
 	  </div>
@@ -83,17 +95,15 @@
 	   <div class="col-sm-12 space_all">
 	    <div class="register_1li1l clearfix">
 		 <h5>Enter Your Address *</h5>
-		 <input class="form-control" type="text" name="Address" required>
+		 <input class="form-control" type="text" name="u_address" required>
 		</div>
 	   </div>
 	  </div>
     <br>
 		 <br>
 		 <!-- <h5><a class="button_1" type="submit" name="submit" href=""><span>LOG IN</span> <i class="fa fa-chevron-right"></i></a></h5> -->
-		 <input type="submit" class="button_1" value="Request"><span></i></span>
-		</div>
-	   </div>
-	  </div>
+		 <input type="submit" class="button" value="Request"><span></i></span>
+		
          </form>
 
      <div class="clearfix login_page">

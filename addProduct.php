@@ -13,7 +13,7 @@
      $productsubcategory = $_POST['product_subcategory'];
      $producttitle = $_POST['product_title'];
      $productimage = $_FILES['product_image']['name'];
-    $destination = "C:/xampp/htdocs/Baby Choice/img/".basename($_FILES['product_image']['name']);
+    $destination = "E:/xampp/htdocs/Baby Choice/img/".basename($_FILES['product_image']['name']);
     move_uploaded_file($_FILES['product_image']['tmp_name'],$destination);
 
     $sql = "INSERT INTO `products` (`p_id`, `p_name`, `p_description`, `p_price`, `p_image`, `p_category`, `timstamp`, `p_discountprice`, `p_subcategory`, `p_tittle`,`p_quantity`) 
