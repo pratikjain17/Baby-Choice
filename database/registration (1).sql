@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2021 at 08:14 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.15
+-- Generation Time: Apr 10, 2021 at 08:57 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -122,6 +123,20 @@ INSERT INTO `categories` (`c_id`, `c_name`, `timestamp`) VALUES
 (7, 'Foods', '2021-03-17 20:59:02'),
 (8, 'Blankets', '2021-03-17 20:59:22'),
 (9, 'Baby Trollies', '2021-03-17 20:59:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `payment_method` enum('COD','Card','Net Banking','') NOT NULL DEFAULT 'COD',
+  `timestamp` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -256,6 +271,12 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`c_id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -301,6 +322,12 @@ ALTER TABLE `cart`
 --
 ALTER TABLE `categories`
   MODIFY `c_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `products`
