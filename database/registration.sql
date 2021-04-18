@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2021 at 08:57 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.2
+-- Generation Time: Apr 11, 2021 at 03:13 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -127,6 +126,22 @@ INSERT INTO `categories` (`c_id`, `c_name`, `timestamp`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `customize`
+--
+
+CREATE TABLE `customize` (
+  `cp_id` int(11) NOT NULL,
+  `u_name` varchar(100) NOT NULL,
+  `cp_img` varchar(100) NOT NULL,
+  `cp_items` varchar(100) NOT NULL,
+  `cp_text` varchar(100) NOT NULL,
+  `u_address` varchar(100) NOT NULL,
+  `timestamp` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `orders`
 --
 
@@ -180,6 +195,25 @@ INSERT INTO `products` (`p_id`, `p_name`, `p_description`, `p_price`, `p_image`,
 (16, 'Toyshine Ducky Baby Tricycle Ride-on Bicycle (Red)- BES for 2-3 Years Kids', '', '1,999.00', '6.jpg', 2, '2021-03-17 23:30:00', '1,391.00', 4, 'Trikes', 0),
 (17, 'Himalaya Herbals', '', '500.00', '7.jpg', 2, '2021-03-18 08:47:10', '359.00', 5, '', 0),
 (25, 'Johnsons baby soap opera cream mosituriser', 'This is a nice product\r\n', '999', 'hulk vs hulkbuster.jpg', 5, '2021-03-31 12:38:06', '899', 2, 'Cream', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `requests`
+--
+
+CREATE TABLE `requests` (
+  `r_id` int(11) NOT NULL,
+  `u_name` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `mobile` varchar(50) NOT NULL,
+  `p_name` varchar(10) NOT NULL,
+  `p_size` varchar(100) NOT NULL,
+  `p_detail` varchar(100) NOT NULL,
+  `rp_img` varchar(100) NOT NULL,
+  `u_address` varchar(100) NOT NULL,
+  `timestamp` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -271,6 +305,12 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`c_id`);
 
 --
+-- Indexes for table `customize`
+--
+ALTER TABLE `customize`
+  ADD PRIMARY KEY (`cp_id`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -282,6 +322,12 @@ ALTER TABLE `orders`
 ALTER TABLE `products`
   ADD PRIMARY KEY (`p_id`);
 ALTER TABLE `products` ADD FULLTEXT KEY `p_name` (`p_name`,`p_description`);
+
+--
+-- Indexes for table `requests`
+--
+ALTER TABLE `requests`
+  ADD PRIMARY KEY (`r_id`);
 
 --
 -- Indexes for table `subcategories`
@@ -324,6 +370,12 @@ ALTER TABLE `categories`
   MODIFY `c_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT for table `customize`
+--
+ALTER TABLE `customize`
+  MODIFY `cp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
@@ -334,6 +386,12 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `products`
   MODIFY `p_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `requests`
+--
+ALTER TABLE `requests`
+  MODIFY `r_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `subcategories`
