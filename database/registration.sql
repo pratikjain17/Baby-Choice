@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2021 at 06:37 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.2
+-- Generation Time: Apr 19, 2021 at 09:16 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -90,17 +89,8 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cart_p_id`, `p_id`, `user_id`, `p_quantity`, `timestamp`) VALUES
-(51, 4, 21, 1, '2021-03-31 18:16:37'),
-(102, 1, 2, 1, '2021-04-04 21:21:13'),
-(103, 1, 2, 1, '2021-04-04 21:21:22'),
 (104, 0, 0, 1, '2021-04-04 22:37:35'),
-(105, 1, 2, 1, '2021-04-04 23:39:34'),
-(106, 1, 2, 1, '2021-04-04 23:39:53'),
-(107, 2, 22, 2, '2021-04-18 14:46:05'),
-(109, 1, 21, 1, '2021-04-19 20:21:45'),
-(110, 1, 21, 1, '2021-04-19 20:40:11'),
-(111, 2, 21, 2, '2021-04-19 20:45:20'),
-(112, 2, 21, 1, '2021-04-19 21:03:08');
+(117, 1, 2, 2, '2021-04-20 00:38:34');
 
 -- --------------------------------------------------------
 
@@ -132,6 +122,22 @@ INSERT INTO `categories` (`c_id`, `c_name`, `timestamp`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `customize`
+--
+
+CREATE TABLE `customize` (
+  `cp_id` int(11) NOT NULL,
+  `u_name` varchar(100) NOT NULL,
+  `cp_img` varchar(100) NOT NULL,
+  `cp_items` varchar(200) NOT NULL,
+  `cp_text` varchar(200) NOT NULL,
+  `u_address` varchar(200) NOT NULL,
+  `timestamp` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `orders`
 --
 
@@ -149,7 +155,9 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`order_id`, `user_id`, `amount`, `status`, `timestamp`) VALUES
 (1, 21, 50, 'pending', '2021-04-19 21:12:25'),
-(2, 21, 2324, 'pending', '2021-04-19 21:27:46');
+(2, 21, 2324, 'pending', '2021-04-19 21:27:46'),
+(3, 2, 2276, 'pending', '2021-04-19 22:32:47'),
+(4, 2, 569, 'pending', '2021-04-19 22:34:44');
 
 -- --------------------------------------------------------
 
@@ -193,6 +201,25 @@ INSERT INTO `products` (`p_id`, `p_name`, `p_description`, `p_price`, `p_image`,
 (16, 'Toyshine Ducky Baby Tricycle Ride-on Bicycle (Red)- BES for 2-3 Years Kids', '', '1,999.00', '6.jpg', 2, '2021-03-17 23:30:00', '1,391.00', 4, 'Trikes', 0),
 (17, 'Himalaya Herbals', '', '500.00', '7.jpg', 2, '2021-03-18 08:47:10', '359.00', 5, '', 0),
 (25, 'Johnsons baby soap opera cream mosituriser', 'This is a nice product\r\n', '999', 'hulk vs hulkbuster.jpg', 5, '2021-03-31 12:38:06', '899', 2, 'Cream', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `requests`
+--
+
+CREATE TABLE `requests` (
+  `r_id` int(11) NOT NULL,
+  `u_name` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `mobile` varchar(20) NOT NULL,
+  `p_name` varchar(200) NOT NULL,
+  `p_size` varchar(200) NOT NULL,
+  `p_detail` varchar(200) NOT NULL,
+  `rp_img` varchar(200) NOT NULL,
+  `u_address` varchar(200) NOT NULL,
+  `timestamp` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -285,6 +312,12 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`c_id`);
 
 --
+-- Indexes for table `customize`
+--
+ALTER TABLE `customize`
+  ADD PRIMARY KEY (`cp_id`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -296,6 +329,12 @@ ALTER TABLE `orders`
 ALTER TABLE `products`
   ADD PRIMARY KEY (`p_id`);
 ALTER TABLE `products` ADD FULLTEXT KEY `p_name` (`p_name`,`p_description`);
+
+--
+-- Indexes for table `requests`
+--
+ALTER TABLE `requests`
+  ADD PRIMARY KEY (`r_id`);
 
 --
 -- Indexes for table `subcategories`
@@ -329,7 +368,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_p_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `cart_p_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -338,16 +377,28 @@ ALTER TABLE `categories`
   MODIFY `c_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT for table `customize`
+--
+ALTER TABLE `customize`
+  MODIFY `cp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `p_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `requests`
+--
+ALTER TABLE `requests`
+  MODIFY `r_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `subcategories`
