@@ -28,59 +28,78 @@ include 'header.php';
 </head>
 
 <body>
-  <h1>Merchant Check Out Page</h1>
-  <pre>
-	</pre>
-  <form method="post" action="pgRedirect.php">
-    <table border="1">
-      <tbody>
-        <tr>
-          <th>S.No</th>
-          <th>Label</th>
-          <th>Value</th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td><label>ORDER_ID::*</label></td>
-          <td><input id="ORDER_ID" tabindex="1" maxlength="20" size="20" name="ORDER_ID" autocomplete="off"
-              value="<?php echo  "ORDS" . rand(10000, 99999999) ?>">
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td><label>CUSTID ::*</label></td>
-          <td><input id="CUST_ID" tabindex="2" maxlength="12" size="12" name="CUST_ID" autocomplete="off"
-              value="CUST001"></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td><label>INDUSTRY_TYPE_ID ::*</label></td>
-          <td><input id="INDUSTRY_TYPE_ID" tabindex="4" maxlength="12" size="12" name="INDUSTRY_TYPE_ID"
-              autocomplete="off" value="Retail"></td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td><label>Channel ::*</label></td>
-          <td><input id="CHANNEL_ID" tabindex="4" maxlength="12" size="12" name="CHANNEL_ID" autocomplete="off"
-              value="WEB">
-          </td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td><label>txnAmount*</label></td>
-          <td><input title="TXN_AMOUNT" tabindex="10" type="text" name="TXN_AMOUNT"
-              value="<?php echo $_SESSION['cartBill'] ?>">
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td><input value="CheckOut" type="submit" onclick=""></td>
-        </tr>
-      </tbody>
-    </table>
-    * - Mandatory Fields
-  </form>
+  <section id="center" class="center_register">
+    <div class="container">
+      <div class="row">
+        <div class="register_1 clearfix">
+          <div class="register_1l clearfix">
+            <div class="register_1li clearfix">
+              <div class="center_3r1 clearfix">
+                <div class="row">
+                  <div class="col-sm-9">
+                    <h4>Merchant Check Out Page</h4>
+                  </div>
+                </div>
+              </div>
+                    <!-- <pre>
+	</pre> -->
+                    <form method="post" action="pgRedirect.php">
+                    <div class="table-responsive">
+                                <table class="table table-striped table-sm">
+                        <tbody>
+                          <tr>
+                            <th>S.No</th>
+                            <th>Label</th>
+                            <th>Value</th>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td><label>ORDER_ID::*</label></td>
+                            <td><input id="ORDER_ID" tabindex="1" maxlength="20" size="20" name="ORDER_ID" autocomplete="off" value="<?php echo  "ORDS" . rand(10000, 99999999) ?>" readonly>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td><label>CUSTID ::*</label></td>
+                            <td><input id="CUST_ID" tabindex="2" maxlength="12" size="12" name="CUST_ID" autocomplete="off" value="CUST001" readonly></td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td><label>INDUSTRY_TYPE_ID ::*</label></td>
+                            <td><input id="INDUSTRY_TYPE_ID" tabindex="4" maxlength="12" size="12" name="INDUSTRY_TYPE_ID" autocomplete="off" value="Retail" readonly></td>
+                          </tr>
+                          <tr>
+                            <td>4</td>
+                            <td><label>Channel ::*</label></td>
+                            <td><input id="CHANNEL_ID" tabindex="4" maxlength="12" size="12" name="CHANNEL_ID" autocomplete="off" value="WEB" readonly>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>5</td>
+                            <td><label>txnAmount*</label></td>
+                            <td><input title="TXN_AMOUNT" tabindex="10" type="text" name="TXN_AMOUNT" value="<?php echo $_SESSION['cartBill'] ?>" readonly>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td><input value="CheckOut" type="submit" onclick=""></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      * imp : Undeditable Mandatory Fields
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+       
+  </section>
 </body>
 
 </html>
+<?php
+include 'footer.php';
+?>

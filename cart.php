@@ -256,8 +256,8 @@ include 'header.php';
 									<h6 class="mgt"><a class="button mgt" href="#">UPDATE CART</a></h6>
 								</div>
 							</div>
-						</div>
-					</div> -->
+						</div> -->
+					</div> 
             <div class="col-sm-4">
               <div class="cart_3r clearfix">
                 <h5 class="mgt head_1">SUBTOTAL</h5>
@@ -271,12 +271,12 @@ include 'header.php';
 
 
                 <hr>
-                <h6>Additional comments</h6>
-                <textarea class="form-control"></textarea>
+                <!-- <h6>Additional comments</h6>
+                <textarea class="form-control"></textarea> -->
                 <h5 class="text-center"><a class="button" href="checkout.php?bill=<?php echo $bill ?>">PROCEED TO
                     CHECKOUT</a></h5>
                 <br>
-                <h5>GET SHIPPING ESTIMATES</h5>
+                <!-- <h5>GET SHIPPING ESTIMATES</h5>
                 <hr>
               </div>
               <div class="cart_3r1 clearfix">
@@ -302,7 +302,7 @@ include 'header.php';
                 <input class="form-control" type="text">
                 <h5 class="text-center"><a class="button_1" href="checkout.php">CALCULATE SHIPPING</a></h5>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

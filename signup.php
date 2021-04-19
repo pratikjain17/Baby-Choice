@@ -8,6 +8,7 @@
         $mobile = $_POST['mobile'];
         $password = $_POST['password'];
         $reenterpassword = $_POST['reenterpassword'];
+        $address = $_POST['address'];
         
 //        $student_cpassword = $_POST['signupCpassword'];
 //        $student_gender = $_POST['gender'];
@@ -34,7 +35,7 @@
             if($password == $reenterpassword){
 //                move_uploaded_file($_FILES['image']['tmp_name'],$destination);
                 $hash_password = password_hash($password,PASSWORD_DEFAULT);
-                $sql = "INSERT INTO `user` (`user_id`, `fname`, `lname`, `email`, `mobile`, `password`, `timestamp`) VALUES (NULL, '$fname', '$lname', '$email', '$mobile', '$hash_password', current_timestamp());";
+                $sql = "INSERT INTO `user` (`user_id`, `fname`, `lname`, `email`, `mobile`, `password`, `address`, `timestamp`) VALUES (NULL, '$fname', '$lname', '$email', '$mobile', '$hash_password', '$address', current_timestamp());";
                 $result = mysqli_query($conn,$sql);
 
                 if($result){

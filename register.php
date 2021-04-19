@@ -81,6 +81,13 @@
                                                     <h5>Re-enter Your Password *</h5>
                                                     <input class="form-control" type="password" name="reenterpassword" required>
 						
+                                                    <div class="register_1li1 clearfix">
+                                            <div class="col-sm-12 space_all">
+                                                <div class="register_1li1l clearfix">
+                                                    <h5>Address *</h5>
+                                                    <textarea class="form-control" type="text" name="address" required placeholder="eg : Room no, Apartment name, phase, Area name, Near by, City, Zip Code, State"></textarea>
+                                                </div>
+                                            </div>
                                                     <div class="register_1li2 clearfix">
 
                                                         <div class="col-sm-12 space_all">

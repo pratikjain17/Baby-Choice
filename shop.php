@@ -1,7 +1,7 @@
 <?php
 	include 'db_connection.php';
     include 'header.php';
-	error_reporting(0);
+    error_reporting(0);
  ini_set('display_errors', 0);
     ?>
 
@@ -229,7 +229,7 @@
 	  <div class="center_product1i clearfix">
 	   <h1 class="mgt col">BIG SALE</h1>
 	   <h3 class="col"> Save up to 49% off </h3>
-	   <p class="col"> Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+	   <p class="col"> We have Sale that Brings joy. </p>
 	  </div>
 	 </div>
 	 <div class="center_product_1r2 clearfix">
@@ -261,8 +261,8 @@
 					   <div class="arriv_2 mgt clearfix">
 					   </div>
 	  <?php 
-        $category_id = $_GET['category_id'];
-        $sql = "SELECT * FROM `products` WHERE `p_category = $category_id`";
+        // $category_id = $_GET['category_id'];
+        $sql = "SELECT * FROM `products` WHERE `p_category`";
         $result = mysqli_query($conn,$sql);
         $noResult = false;
         while($row = mysqli_fetch_assoc($result)){
@@ -296,8 +296,7 @@
 					   </h5>
 						  </div>
 						 </div>
-	                    </div>
-						<br>';
+	                    </div>';
 		}
 		?>
 						<!-- <div class="col-sm-4">
@@ -566,8 +565,8 @@
 			  <div id="menu_information" class="tab-pane fade clearfix active in">
 					 <div class="click clearfix">
 			  <?php 
-        $category_id = $_GET['category_id'];
-        $sql = "SELECT * FROM `products` WHERE `p_category` = $category_id";
+        // $category_id = $_GET['category_id'];
+        $sql = "SELECT * FROM `products` WHERE `p_category`";
         $result = mysqli_query($conn,$sql);
         $noResult = false;
         while($row = mysqli_fetch_assoc($result)){
@@ -612,7 +611,8 @@
 						  </div>
 						</div>
 					   </div>
-					  </div>';
+					  </div>
+                      <br>';
 		}
 		?>
 					  <!-- <div class="list_1 clearfix">

@@ -240,21 +240,30 @@
 				  <div id="home_description" class="tab-pane fade clearfix active in">
 					 <div class="click clearfix">
 					   <div class="click_inner clearfix">
-					    <h4 class="mgt">Lorem Ipsum</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitursodales ligula in libero.Sed dignissim lacinia nunc.</p>
+					    <h4 class="mgt">Product Detail</h4>
+						<p>Is Discontinued By Manufacturer : No</p>
+<p>Package Dimensions : 44.45 x 35.31 x 30.99 cm; 610 Grams</p>
+<p>Date First Available : 5 September 2017</p>
+<p>Manufacturer : BAYBEE</p>
+<p>ASIN : B07F153Q1L</p>
+<p>Item part number : BBHC708-21B</p>
+<p>Manufacturer : BAYBEE</p>
+<p>Item Weight : 610 g</p>
+<p>Best Sellers Rank: #65,517 in Home & Kitchen (See Top 100 in Home & Kitchen)
+#43 in Kids' Chairs</p>
 					   </div>
 					   <div class="click_inner clearfix">
-					    <h4>Adipiscing Elit</h4>
+					    <h4>Features</h4>
 						<ul>
-						 <li>Sed cursus ante dapibus diam Sed nisi. </li>
-						 <li>Nulla quis sem at nibh elementum imperdiet.</li>
-						 <li>Duis sagittis ipsum Praesent mauris.</li>
+						 <li>Sleek...two-burner grill built for small spaces. </li>
+						 <li>Convenient side tables…</li>
+						 <li>Packed with [branded] features.</li>
 						 <li>Fusce nec tellus sed augue semper porta.</li>
 						 <li>Mauris massa Vestibulum lacinia arcu eget nulla.</li>
 						</ul>
 					   </div>
 					   <div class="click_inner clearfix">
-					    <h4>Integer Nec </h4>
+					    <h4>Benefit </h4>
 						<ul>
 						 <li>Sed cursus ante dapibus diam Sed nisi. </li>
 						 <li>Nulla quis sem at nibh elementum imperdiet.</li>

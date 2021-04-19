@@ -141,7 +141,7 @@ else{
 				<ul class="nav navbar-nav">
 				<li><a class="tag_m" href="index.php">Home</a></li>
 				<!-- <li><a class="tag_m" href="detail.html">Detail</a></li> -->
-				<li><a class="tag_m" href="product.php">Shop</a></li>
+				<li><a class="tag_m" href="shop.php">Shop</a></li>
 				<li><a class="tag_m" href="blog.php">Blog</a></li>
                 <li><a class="tag_m" href="customize_products.php">Customize Products</a></li>
                 <li><a class="tag_m" href="unique_products.php">Unique Products</a></li>
@@ -244,7 +244,7 @@ else{
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 				<ul class="nav navbar-nav">
 				<li><a class="tag_m" href="index.php">Home</a></li>
-				<li><a class="tag_m" href="product.php">Shop</a></li>
+				<li><a class="tag_m" href="shop.php">Shop</a></li>
 				<!-- <li><a class="tag_m" href="detail.php">Detail</a></li> -->
 				<li><a class="tag_m" href="blog.php">Blog</a></li>
 				<li><a class="tag_m" href="customize_products.php">Customize Products</a></li>
