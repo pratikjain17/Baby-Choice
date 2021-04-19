@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2021 at 03:13 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.15
+-- Generation Time: Apr 19, 2021 at 06:37 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -89,12 +90,17 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cart_p_id`, `p_id`, `user_id`, `p_quantity`, `timestamp`) VALUES
-(51, 4, 21, 7, '2021-03-31 18:16:37'),
+(51, 4, 21, 1, '2021-03-31 18:16:37'),
 (102, 1, 2, 1, '2021-04-04 21:21:13'),
 (103, 1, 2, 1, '2021-04-04 21:21:22'),
 (104, 0, 0, 1, '2021-04-04 22:37:35'),
 (105, 1, 2, 1, '2021-04-04 23:39:34'),
-(106, 1, 2, 1, '2021-04-04 23:39:53');
+(106, 1, 2, 1, '2021-04-04 23:39:53'),
+(107, 2, 22, 2, '2021-04-18 14:46:05'),
+(109, 1, 21, 1, '2021-04-19 20:21:45'),
+(110, 1, 21, 1, '2021-04-19 20:40:11'),
+(111, 2, 21, 2, '2021-04-19 20:45:20'),
+(112, 2, 21, 1, '2021-04-19 21:03:08');
 
 -- --------------------------------------------------------
 
@@ -126,32 +132,24 @@ INSERT INTO `categories` (`c_id`, `c_name`, `timestamp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customize`
---
-
-CREATE TABLE `customize` (
-  `cp_id` int(11) NOT NULL,
-  `u_name` varchar(100) NOT NULL,
-  `cp_img` varchar(100) NOT NULL,
-  `cp_items` varchar(100) NOT NULL,
-  `cp_text` varchar(100) NOT NULL,
-  `u_address` varchar(100) NOT NULL,
-  `timestamp` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `orders`
 --
 
 CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `payment_method` enum('COD','Card','Net Banking','') NOT NULL DEFAULT 'COD',
+  `amount` int(7) NOT NULL,
+  `status` enum('pending','delivered','','') NOT NULL DEFAULT 'pending',
   `timestamp` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `user_id`, `amount`, `status`, `timestamp`) VALUES
+(1, 21, 50, 'pending', '2021-04-19 21:12:25'),
+(2, 21, 2324, 'pending', '2021-04-19 21:27:46');
 
 -- --------------------------------------------------------
 
@@ -195,25 +193,6 @@ INSERT INTO `products` (`p_id`, `p_name`, `p_description`, `p_price`, `p_image`,
 (16, 'Toyshine Ducky Baby Tricycle Ride-on Bicycle (Red)- BES for 2-3 Years Kids', '', '1,999.00', '6.jpg', 2, '2021-03-17 23:30:00', '1,391.00', 4, 'Trikes', 0),
 (17, 'Himalaya Herbals', '', '500.00', '7.jpg', 2, '2021-03-18 08:47:10', '359.00', 5, '', 0),
 (25, 'Johnsons baby soap opera cream mosituriser', 'This is a nice product\r\n', '999', 'hulk vs hulkbuster.jpg', 5, '2021-03-31 12:38:06', '899', 2, 'Cream', 4);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `requests`
---
-
-CREATE TABLE `requests` (
-  `r_id` int(11) NOT NULL,
-  `u_name` varchar(20) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `mobile` varchar(50) NOT NULL,
-  `p_name` varchar(10) NOT NULL,
-  `p_size` varchar(100) NOT NULL,
-  `p_detail` varchar(100) NOT NULL,
-  `rp_img` varchar(100) NOT NULL,
-  `u_address` varchar(100) NOT NULL,
-  `timestamp` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -274,7 +253,8 @@ INSERT INTO `user` (`user_id`, `fname`, `lname`, `email`, `mobile`, `password`, 
 (14, 'Admin', 'aky', 'admin@admin.in', '1234567891', '$2y$10$MeKwG3ghqzsee7ahFB3/j.N3Lqn6AaZieNFHBvk//IcV4TrLVoAxm', 'a', '2021-03-15 14:54:40'),
 (19, 'ajay', 'gsagsafsa', 'safsagasgafa', '1234567891', '$2y$10$Tpfy.Y/neOY7UvAT3Da/h.9BanzQ4R3F8POqkv8N7yBghvDxA/XUG', 'mn', '2021-03-16 16:00:17'),
 (20, 'b2', 'b2', 'b2@gmail.com', '1234567890', '$2y$10$TFumbEZsugxamM/Zn6hQGeoo5X2UzVcR479hY4XTc9zR/pCOKozRa', 'zz', '2021-03-21 13:38:49'),
-(21, 'Pratik ', 'Jain', 'pdir@gmail.com', '9901910910', '$2y$10$5PDf1JpPei9io6H/Sf316OmZKmlP/3Hzu76rVlSec5r2WHA6OWos2', 'za', '2021-03-23 12:45:52');
+(21, 'Pratik ', 'Jain', 'pdir@gmail.com', '9901910910', '$2y$10$5PDf1JpPei9io6H/Sf316OmZKmlP/3Hzu76rVlSec5r2WHA6OWos2', 'Golden n', '2021-03-23 12:45:52'),
+(22, 'Priyansh', 'Jain', 'pratik.hh@gmail.com', '3455667778', '$2y$10$juaBCSfVa0cH3x6c4fxcPOHeitLlAGC/hQTe4vghK8n32UeIutxUu', '', '2021-04-18 14:45:37');
 
 --
 -- Indexes for dumped tables
@@ -305,12 +285,6 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`c_id`);
 
 --
--- Indexes for table `customize`
---
-ALTER TABLE `customize`
-  ADD PRIMARY KEY (`cp_id`);
-
---
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -322,12 +296,6 @@ ALTER TABLE `orders`
 ALTER TABLE `products`
   ADD PRIMARY KEY (`p_id`);
 ALTER TABLE `products` ADD FULLTEXT KEY `p_name` (`p_name`,`p_description`);
-
---
--- Indexes for table `requests`
---
-ALTER TABLE `requests`
-  ADD PRIMARY KEY (`r_id`);
 
 --
 -- Indexes for table `subcategories`
@@ -361,7 +329,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_p_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `cart_p_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -370,28 +338,16 @@ ALTER TABLE `categories`
   MODIFY `c_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `customize`
---
-ALTER TABLE `customize`
-  MODIFY `cp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `p_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
---
--- AUTO_INCREMENT for table `requests`
---
-ALTER TABLE `requests`
-  MODIFY `r_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `subcategories`
@@ -403,7 +359,7 @@ ALTER TABLE `subcategories`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
