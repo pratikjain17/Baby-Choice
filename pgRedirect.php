@@ -5,6 +5,8 @@ header("Expires: 0");
 // following files need to be included
 require_once("./lib/config_paytm.php");
 require_once("./lib/encdec_paytm.php");
+include "db_connection.php";
+include "header.php";
 
 $checkSum = "";
 $paramList = array();
@@ -46,6 +48,16 @@ $checkSum = getChecksumFromArray($paramList, PAYTM_MERCHANT_KEY);
   <center>
     <h1>Please do not refresh this page...</h1>
   </center>
+
+  <?php
+  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    $userid = $_SESSION['userid'];
+    $bill = $_SESSION['cartBill'];
+    $sql = "INSERT INTO `orders` (`order_id`, `user_id`, `amount`, `status`, `timestamp`) VALUES (NULL, '$userid', '$bill', 'pending', current_timestamp());";
+    $result = mysqli_query($conn, $sql);
+  }
+  ?>
+
   <form method="post" action="<?php echo PAYTM_TXN_URL ?>" name="f1">
     <table border="1">
       <tbody>
