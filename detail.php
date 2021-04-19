@@ -255,26 +255,26 @@
 					   <div class="click_inner clearfix">
 					    <h4>Features</h4>
 						<ul>
-						 <li>Sleek...two-burner grill built for small spaces. </li>
-						 <li>Convenient side tables…</li>
-						 <li>Packed with [branded] features.</li>
-						 <li>Fusce nec tellus sed augue semper porta.</li>
-						 <li>Mauris massa Vestibulum lacinia arcu eget nulla.</li>
+						 <li>EXCELLENT MATERIALS: Non-toxic HQ polypropylene seat.</li>
+						 <li>Plastic legs, Can sustain 100kg weight.</li>
+						 <li>Weather resistant and Water Proof.</li>
+						 <li>lightweight architecture Suitable for indoor and outdoor use.</li>
+						 <li>No Assembly Required.</li>
 						</ul>
 					   </div>
 					   <div class="click_inner clearfix">
-					    <h4>Benefit </h4>
+					    <h4>Benefits </h4>
 						<ul>
-						 <li>Sed cursus ante dapibus diam Sed nisi. </li>
-						 <li>Nulla quis sem at nibh elementum imperdiet.</li>
-						 <li>Duis sagittis ipsum Praesent mauris.</li>
-						 <li>Fusce nec tellus sed augue semper porta.</li>
-						 <li>Mauris massa Vestibulum lacinia arcu eget nulla.</li>
+						 <li>All our products have been committed to ensure Quality. </li>
+						 <li>Customer Satisfaction to the Highest Possible Standards.</li>
+						 <li>Trustworthy Shopping Experience.</li>
+						 <li>Even though it is sturdy and durable.</li>
+						 <li>it is light weighted and removable.</li>
 						</ul>
 					   </div>
 					   <div class="click_inner clearfix">
 						<blockquote>
-						 <p class="mgt">Praesent libero Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitursodales ligula in libero.Sed dignissim lacinia nunc.</p>
+						 <p class="mgt">Strong and Durable Chair. Fully molded plastic. Non-Toxic. Weather resistant. Water proof. Can be used indoors and outdoors. Dimensions (LxWxH): 35 x 36 x 55 cms. Seat Height: 30 cms.</p>
 						</blockquote>
 					   </div>
 				    </div>

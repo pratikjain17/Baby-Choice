@@ -364,7 +364,7 @@
 			<div class="col-sm-3 space_left">
 			 <div class="center_3r2i text-center clearfix">
 									<a href="detail.php"><img class="mgt iw" src="img/'.$product_image.'" alt=""></a>
-									<p><a href="detaial.php">'.$product_name.'</a></p>
+									<p><a href="detail.php">'.$product_name.'</a></p>
 									<span class="span_1">
 									 <i class="fa fa-star"></i>
 									 <i class="fa fa-star"></i>
